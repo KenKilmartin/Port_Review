@@ -9,6 +9,11 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Name</th>
+                <th>Photo</th>
+                <th>Description</th>
+                <th>Ingrediants</th>
+                <th>PriceRange</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -16,6 +21,11 @@
         {% for port in ports %}
             <tr>
                 <td>{{ port.id }}</td>
+                <td>{{ port.name }}</td>
+                <td>{{ port.photo }}</td>
+                <td>{{ port.description }}</td>
+                <td>{{ port.ingrediants }}</td>
+                <td>{{ port.priceRange }}</td>
                 <td>
                     <a href="{{ path('port_show', {'id': port.id}) }}">show</a>
                     <a href="{{ path('port_edit', {'id': port.id}) }}">edit</a>
@@ -23,7 +33,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">no records found</td>
+                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
