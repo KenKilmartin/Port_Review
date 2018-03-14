@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PortRepository")
@@ -17,6 +18,12 @@ class Port
     private $id;
 
     /**
+     * @Assert\Length (
+     *     min = 5,
+     *     max = 50,
+     *     minMessage = "The port's name must be at least 5 characters long",
+     *     maxMessage = "The port's name cannot be longer than 50 characters"
+     *     )
      * @ORM\Column(type ="string")
      */
     private $name;
@@ -25,6 +32,7 @@ class Port
      */
     private $photo;
     /**
+     * @Assert\Length (min = 10,max = 250)
      * @ORM\Column(type ="string")
      */
     private $description;
@@ -33,28 +41,11 @@ class Port
      */
     private $ingrediants;
     /**
-     * @ORM\Column(type ="string")
+     * @ORM\Column(type ="integer")
      */
     private $priceRange;
 
-//    /**
-//     * Port constructor.
-//     * @param $id
-//     * @param $name
-//     * @param $photo
-//     * @param $description
-//     * @param $ingrediants
-//     * @param $priceRange
-//     */
-//    public function __construct($id, $name, $photo, $description, $ingrediants, $priceRange)
-//    {
-//        $this->id = $id;
-//        $this->name = $name;
-//        $this->photo = $photo;
-//        $this->description = $description;
-//        $this->ingrediants = $ingrediants;
-//        $this->priceRange = $priceRange;
-//    }
+
 
     /**
      * @return mixed
