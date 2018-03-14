@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Port
 {
     /**
+     * auto incremented id
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -18,6 +19,7 @@ class Port
     private $id;
 
     /**
+     * this is the name of the port it should restrict the limit
      * @Assert\Length (
      *     min = 5,
      *     max = 50,
@@ -28,19 +30,23 @@ class Port
      */
     private $name;
     /**
+     * this is for the Photo of image
      * @ORM\Column(type ="string")
      */
     private $photo;
     /**
+     * This is a brief description
      * @Assert\Length (min = 10,max = 250)
      * @ORM\Column(type ="string")
      */
     private $description;
     /**
+     * this is a list of ingredients
      * @ORM\Column(type ="string")
      */
     private $ingrediants;
     /**
+     * this is a number that is the price range
      * @ORM\Column(type ="integer")
      */
     private $priceRange;
