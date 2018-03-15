@@ -6,6 +6,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
+
+use App\Entity\Port;
+
+
+
+
 class DefaultController extends Controller
 {
     /**
@@ -15,6 +21,10 @@ class DefaultController extends Controller
     {
         $template = 'default/homepage.html.twig';
         $args = [];
-        return $this->render($template, $args);
+
+        $ports = $this->getDoctrine()
+            ->getRepository(Port::class)
+            ->findAll();
+        return $this->render('default/homepage.html.twig', ['ports' => $ports]);
     }
 }

@@ -6,28 +6,35 @@
     <p>
         welcome to the home page !!
     </p>
-
-    <?php
-            $count = 0;
-            foreach ($ports as $port): ?>
-    <table>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>Description</th>
+        <th>Ingredients</th>
+        <th>PriceRange</th>
+        <th>actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for port in ports %}
         <tr>
-
-        <tr><th colspan="2"> <?= $port['portName'] ?>  &euro;<?= $port['productPrice'] ?></th></tr>
-        <tr><td rowspan="2"><img class="items" src="<?= $port['productImage'] ?>" alt= "<?= $port['productName'] ?>" ></td></tr>
+            <td>{{ port.id }}</td>
+            <td>{{ port.name }}</td>
+            <td>{{ port.photo }}</td>
+            <td>{{ port.description }}</td>
+            <td>{{ port.ingrediants }}</td>
+            <td>{{ port.priceRange }}</td>
 
         </tr>
+    {% else %}
+        <tr>
+            <td colspan="7">no records found</td>
         </tr>
-
-        <?php if($count == 2) : ?>
-        </tr>
-    </table>
-    <?php
-                $count = 0;
-                endif;?>
-    <?php
-            $count++;
-            endforeach; ?>
-
+    {% endfor %}
+    </tbody>
+</table>
 
 {% endblock %}
