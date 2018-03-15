@@ -6,4 +6,28 @@
     <p>
         welcome to the home page !!
     </p>
+
+    <?php
+            $count = 0;
+            foreach ($ports as $port): ?>
+    <table>
+        <tr>
+
+        <tr><th colspan="2"> <?= $port['portName'] ?>  &euro;<?= $port['productPrice'] ?></th></tr>
+        <tr><td rowspan="2"><img class="items" src="<?= $port['productImage'] ?>" alt= "<?= $port['productName'] ?>" ></td></tr>
+
+        </tr>
+        </tr>
+
+        <?php if($count == 2) : ?>
+        </tr>
+    </table>
+    <?php
+                $count = 0;
+                endif;?>
+    <?php
+            $count++;
+            endforeach; ?>
+
+
 {% endblock %}
