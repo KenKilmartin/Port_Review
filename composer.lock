@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb2788eabb5b3eff751da89a2cef2082",
+    "content-hash": "63b51d1653a298c71a9b141a251cef8e",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1120,16 +1120,16 @@
         },
         {
             "name": "koff/crud-maker-bundle",
-            "version": "v1.0.9",
+            "version": "v1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sadikoff/crud-maker-bundle.git",
-                "reference": "27a29af8df33d6814fe181d7c93517263e1fc8c4"
+                "reference": "2bb064081bfd6b3535eddef41cf87a6f7a45aa85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sadikoff/crud-maker-bundle/zipball/27a29af8df33d6814fe181d7c93517263e1fc8c4",
-                "reference": "27a29af8df33d6814fe181d7c93517263e1fc8c4",
+                "url": "https://api.github.com/repos/sadikoff/crud-maker-bundle/zipball/2bb064081bfd6b3535eddef41cf87a6f7a45aa85",
+                "reference": "2bb064081bfd6b3535eddef41cf87a6f7a45aa85",
                 "shasum": ""
             },
             "require": {
@@ -1138,7 +1138,7 @@
                 "symfony/console": "^3.4|^4.0",
                 "symfony/dependency-injection": "^3.4|^4.0",
                 "symfony/http-kernel": "^3.4|^4.0",
-                "symfony/maker-bundle": "^1.0"
+                "symfony/maker-bundle": "<1.2"
             },
             "require-dev": {
                 "doctrine/orm": "^2.5.11",
@@ -1174,7 +1174,7 @@
                 "scaffold",
                 "scaffolding"
             ],
-            "time": "2018-03-10T10:01:21+00:00"
+            "time": "2018-03-14T07:48:34+00:00"
         },
         {
             "name": "ocramius/package-versions",

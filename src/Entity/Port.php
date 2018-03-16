@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PortRepository")
@@ -20,16 +21,15 @@ class Port
 
     /**
      * this is the name of the port it should restrict the limit
-     * @ORM\OneToMany(targetEntity = "App\Entity\Review",mappedBy = "port")
+     * ORM\Column(type ="string")
      * @Assert\Length (
      *     min = 5,
      *     max = 50,
      *     minMessage = "The port's name must be at least 5 characters long",
      *     maxMessage = "The port's name cannot be longer than 50 characters"
      *     )
-     *
      */
-    private $port;
+    private $portName;
     /**
      * this is for the Photo of image
      * @ORM\Column(type ="string")
@@ -45,12 +45,26 @@ class Port
      * this is a list of ingredients
      * @ORM\Column(type ="string")
      */
-    private $ingrediants;
+    private $ingredients;
     /**
      * this is a number that is the price range
      * @ORM\Column(type ="integer")
      */
     private $priceRange;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Review", mappedBy="port")
+     */
+    private $productReview;
+
+    public function __construct()
+    {
+        $this->productReview = new ArrayCollection();
+    }
+
+
+
+
 
     /**
      * @return mixed
@@ -69,7 +83,7 @@ class Port
     }
     /**
      * this has been reviewed by
-     * @ORM\Column(type ="integer")
+     * @ORM\Column(type ="string")
      *
      */
     private $reviewedBy;
@@ -83,7 +97,6 @@ class Port
     {
         return $this->id;
     }
-
     /**
      * @param mixed $id
      */
@@ -95,17 +108,17 @@ class Port
     /**
      * @return mixed
      */
-    public function getPort()
+    public function getPortName()
     {
-        return $this->port;
+        return $this->portName;
     }
 
     /**
-     * @param mixed $port
+     * @param mixed $portName
      */
-    public function setPort($port)
+    public function setPortName($portName)
     {
-        $this->port = $port;
+        $this->portName = $portName;
     }
 
     /**
@@ -143,17 +156,17 @@ class Port
     /**
      * @return mixed
      */
-    public function getIngrediants()
+    public function getIngredients()
     {
-        return $this->ingrediants;
+        return $this->ingredients;
     }
 
     /**
-     * @param mixed $ingrediants
+     * @param mixed $ingredients
      */
-    public function setIngrediants($ingrediants)
+    public function setIngredients($ingredients)
     {
-        $this->ingrediants = $ingrediants;
+        $this->ingredients = $ingredients;
     }
 
     /**

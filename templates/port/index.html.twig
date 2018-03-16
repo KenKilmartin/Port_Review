@@ -3,17 +3,18 @@
 {% block title %}Port index{% endblock %}
 
 {% block body %}
-    <div class="container">
+
     <h1>Port index</h1>
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>PortName</th>
                 <th>Photo</th>
                 <th>Description</th>
-                <th>Ingredients</th>
+                <th>ingredients</th>
                 <th>PriceRange</th>
+
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,11 +22,12 @@
         {% for port in ports %}
             <tr>
                 <td>{{ port.id }}</td>
-                <td>{{ port.name }}</td>
-                <td>{{ port.photo }}</td>
+                <td>{{ port.portName }}</td>
+               <td><img class="items" src=" <td>{{ port.photo }} ></td>
                 <td>{{ port.description }}</td>
-                <td>{{ port.ingrediants }}</td>
+                <td>{{ port.ingredients }}</td>
                 <td>{{ port.priceRange }}</td>
+
                 <td>
                     <a href="{{ path('port_show', {'id': port.id}) }}">show</a>
                     <a href="{{ path('port_edit', {'id': port.id}) }}">edit</a>
@@ -33,7 +35,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="8">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

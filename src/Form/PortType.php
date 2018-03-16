@@ -12,11 +12,12 @@ class PortType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('portName')
             ->add('photo')
             ->add('description')
-            ->add('ingrediants')
+            ->add('ingredients')
             ->add('priceRange')
+            ->add('reviewedBy')
         ;
     }
 

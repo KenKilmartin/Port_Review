@@ -9,7 +9,7 @@
 <table>
     <thead>
     <tr>
-        <th>Id</th>
+
         <th>Name</th>
         <th>Photo</th>
         <th>Description</th>
@@ -21,11 +21,10 @@
     <tbody>
     {% for port in ports %}
         <tr>
-            <td>{{ port.id }}</td>
-            <td>{{ port.name }}</td>
-            <td>{{ port.photo }}</td>
+            <td>{{ port.portName }}</td>
+            <img class="items" src=" <td>{{ port.photo }} ></td>
             <td>{{ port.description }}</td>
-            <td>{{ port.ingrediants }}</td>
+            <td>{{ port.ingredients }}</td>
             <td>{{ port.priceRange }}</td>
 
         </tr>
@@ -33,6 +32,7 @@
         <tr>
             <td colspan="7">no records found</td>
         </tr>
+
     {% endfor %}
     </tbody>
 </table>

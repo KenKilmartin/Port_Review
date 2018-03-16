@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ReviewRepository")
@@ -16,9 +17,11 @@ class Review
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    // add your own fields
-
+    /**
+     * this is for ports name
+     * @ORM\Column(type ="string")
+     */
+    private $portReview;
     /**
      * this is the actual review
      * @Assert\Length (min = 10,max = 250)
@@ -28,19 +31,9 @@ class Review
 
     /**
      * this is for Location of purchase
-     * @ORM\ManyToOne(targetEntity="App\Entity\Port", inversedBy="ports")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $port;
-
-
-
-
-    /**
-     * this is for Location of purchase
      * @ORM\Column(type ="string")
      */
-    private $locatationOfPurchase;
+    private $placeOfPurchase;
     /**
      * this is for the Price paid
      * @ORM\Column(type ="float")
@@ -51,7 +44,6 @@ class Review
      * @ORM\Column(type ="integer")
      */
     private $numOfStars;
-
     /**
      * this is for User
      * @ORM\Column(type ="string")
@@ -62,6 +54,29 @@ class Review
      * @ORM\Column(type ="date")
      */
     private $date;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Port", inversedBy="productReview")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $port;
+
+    public function getPort(): Category
+    {
+        return $this->port;
+    }
+
+    public function setPort(Category $port)
+    {
+        $this->port = $port;
+    }
+
+
+
+
+
+
+
 
     /**
      * @return mixed
@@ -82,54 +97,49 @@ class Review
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getReview()
     {
-        return $this->user;
+        return $this->review;
     }
 
     /**
-     * @param mixed $user
+     * @param mixed $review
      */
-    public function setUser($user): void
+    public function setReview($review): void
     {
-        $this->user = $user;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * @param mixed $date
-     */
-    public function setDate($date): void
-    {
-        $this->date = $date;
+        $this->review = $review;
     }
 
     /**
      * @return mixed
      */
+    public function getPortReview()
+    {
+        return $this->portReview;
+    }
 
+    /**
+     * @param mixed $portReview
+     */
+    public function setPortReview($portReview): void
+    {
+        $this->portReview = $portReview;
+    }
 
     /**
      * @return mixed
      */
-    public function getLocatationOfPurchase()
+    public function getPlaceOfPurchase()
     {
-        return $this->locatationOfPurchase;
+        return $this->placeOfPurchase;
     }
 
     /**
-     * @param mixed $locatationOfPurchase
+     * @param mixed $placeOfPurchase
      */
-    public function setLocatationOfPurchase($locatationOfPurchase): void
+    public function setPlaceOfPurchase($placeOfPurchase): void
     {
-        $this->locatationOfPurchase = $locatationOfPurchase;
+        $this->placeOfPurchase = $placeOfPurchase;
     }
 
     /**
@@ -163,35 +173,37 @@ class Review
     {
         $this->numOfStars = $numOfStars;
     }
+
     /**
      * @return mixed
      */
-    public function getReview()
+    public function getUser()
     {
-        return $this->review;
+        return $this->user;
     }
 
     /**
-     * @param mixed $review
+     * @param mixed $user
      */
-    public function setReview($review): void
+    public function setUser($user): void
     {
-        $this->review = $review;
+        $this->user = $user;
     }
+
     /**
      * @return mixed
      */
-    public function getPort()
+    public function getDate()
     {
-        return $this->port;
+        return $this->date;
     }
 
     /**
-     * @param mixed $port
+     * @param mixed $date
      */
-    public function setPort($port): void
+    public function setDate($date): void
     {
-        $this->port = $port;
+        $this->date = $date;
     }
 
 
