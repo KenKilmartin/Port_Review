@@ -20,15 +20,16 @@ class Port
 
     /**
      * this is the name of the port it should restrict the limit
+     * @ORM\OneToMany(targetEntity = "App\Entity\Review",mappedBy = "port")
      * @Assert\Length (
      *     min = 5,
      *     max = 50,
      *     minMessage = "The port's name must be at least 5 characters long",
      *     maxMessage = "The port's name cannot be longer than 50 characters"
      *     )
-     * @ORM\Column(type ="string")
+     *
      */
-    private $name;
+    private $port;
     /**
      * this is for the Photo of image
      * @ORM\Column(type ="string")
@@ -51,6 +52,28 @@ class Port
      */
     private $priceRange;
 
+    /**
+     * @return mixed
+     */
+    public function getReviewedBy()
+    {
+        return $this->reviewedBy;
+    }
+
+    /**
+     * @param mixed $reviewedBy
+     */
+    public function setReviewedBy($reviewedBy): void
+    {
+        $this->reviewedBy = $reviewedBy;
+    }
+    /**
+     * this has been reviewed by
+     * @ORM\Column(type ="integer")
+     *
+     */
+    private $reviewedBy;
+
 
 
     /**
@@ -72,17 +95,17 @@ class Port
     /**
      * @return mixed
      */
-    public function getName()
+    public function getPort()
     {
-        return $this->name;
+        return $this->port;
     }
 
     /**
-     * @param mixed $name
+     * @param mixed $port
      */
-    public function setName($name)
+    public function setPort($port)
     {
-        $this->name = $name;
+        $this->port = $port;
     }
 
     /**
