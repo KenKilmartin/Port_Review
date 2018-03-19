@@ -6,6 +6,7 @@
     <p>
         welcome to the home page !!
     </p>
+<div id="merch">
 <table>
     <thead>
     <tr>
@@ -14,15 +15,15 @@
         <th>Photo</th>
         <th>Description</th>
         <th>Ingredients</th>
-        <th>PriceRange</th>
-        <th>actions</th>
+        <th>Price</th>
+
     </tr>
     </thead>
     <tbody>
     {% for port in ports %}
         <tr>
             <td>{{ port.portName }}</td>
-            <img class="items" src=" <td>{{ port.photo }} ></td>
+            <td>{{ port.photo }} </td>
             <td>{{ port.description }}</td>
             <td>{{ port.ingredients }}</td>
             <td>{{ port.priceRange }}</td>
@@ -36,5 +37,5 @@
     {% endfor %}
     </tbody>
 </table>
-
+</div>
 {% endblock %}

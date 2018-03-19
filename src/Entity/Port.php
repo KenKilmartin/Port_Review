@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PortRepository")
  */
@@ -18,18 +19,13 @@ class Port
      * @ORM\Column(type="integer")
      */
     private $id;
-
     /**
      * this is the name of the port it should restrict the limit
-     * ORM\Column(type ="string")
-     * @Assert\Length (
-     *     min = 5,
-     *     max = 50,
-     *     minMessage = "The port's name must be at least 5 characters long",
-     *     maxMessage = "The port's name cannot be longer than 50 characters"
-     *     )
+     * @Assert\Length (min = 10,max = 250)
+     * @ORM\Column(type ="string")
      */
     private $portName;
+
     /**
      * this is for the Photo of image
      * @ORM\Column(type ="string")
@@ -52,6 +48,7 @@ class Port
      */
     private $priceRange;
 
+
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Review", mappedBy="port")
      */
@@ -61,10 +58,6 @@ class Port
     {
         $this->productReview = new ArrayCollection();
     }
-
-
-
-
 
     /**
      * @return mixed
@@ -184,5 +177,10 @@ class Port
     {
         $this->priceRange = $priceRange;
     }
+
+    /**
+     * this has been reviewed by
+     * @ORM\Column(type ="string")
+     */
 
 }

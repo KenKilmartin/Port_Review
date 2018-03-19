@@ -20,7 +20,7 @@ class Review
     /**
      * this is for ports name
      * @ORM\Column(type ="string")
-     */
+     *
     private $portReview;
     /**
      * this is the actual review
@@ -57,19 +57,35 @@ class Review
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Port", inversedBy="productReview")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(name="port_id", referencedColumnName="id")
      */
     private $port;
 
-    public function getPort(): Category
+    /**
+     * @return mixed
+     */
+    public function getPort():?Port
     {
         return $this->port;
     }
 
-    public function setPort(Category $port)
+    /**
+     * @param mixed $port
+     */
+    public function setPort($port): void
     {
         $this->port = $port;
     }
+
+//    public function getPort(): Port
+//    {
+//        return $this->port;
+//    }
+//
+//    public function setPort(Port $port)
+//    {
+//        $this->port = $port;
+//    }
 
 
 
