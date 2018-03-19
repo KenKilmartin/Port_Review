@@ -21,11 +21,11 @@ class ReviewType extends AbstractType
             ->add('date')
         //    ->add('port');
             ->add('port', Port::class, [
-        // list objects from this class
-        'class' => 'App:Port',
+            // list objects from this class
+            'class' => 'App:Port',
 
-        // use the 'Category.name' property as the visible option string
-        'choice_label' => 'portName',
+            // use the 'Category.name' property as the visible option string
+            'choice_label' => 'portName',
     ]);
     }
 
