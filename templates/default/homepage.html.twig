@@ -30,9 +30,9 @@
             <td>{{ port.priceRange }}</td>
 
             <td>
-            {% for review in port.productReviews %}
-                <a href="{{ path('review_show', {'id': review.id}) }}">review</a>
-            {% endfor %}
+                {% for review in port.productReviews %}
+                    <a href="{{ path('review_show', {'id': review.id}) }}">review</a>
+                {% endfor %}
 
 
             </td>
