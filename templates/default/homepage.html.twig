@@ -6,21 +6,22 @@
     <p>
         welcome to the home page !!
     </p>
-<div id="merch">
-<table>
-    <thead>
-    <tr>
 
-        <th>Name</th>
-        <th>Photo</th>
-        <th>Description</th>
-        <th>Ingredients</th>
-        <th>Price</th>
-
-    </tr>
-    </thead>
-    <tbody>
     {% for port in ports %}
+        <div id="merch">
+        <table>
+        <thead>
+        <tr>
+
+            <th>Name</th>
+            <th>Photo</th>
+            <th>Description</th>
+            <th>Ingredients</th>
+            <th>Price</th>
+            <th>See Reviews</th>
+        </tr>
+        </thead>
+        <tbody>
         <tr>
             <td>{{ port.portName }}</td>
             <td>{{ port.photo }} </td>
@@ -28,14 +29,22 @@
             <td>{{ port.ingredients }}</td>
             <td>{{ port.priceRange }}</td>
 
+            <td>
+            {% for review in port.productReviews %}
+                <a href="{{ path('review_show', {'id': review.id}) }}">review</a>
+            {% endfor %}
+
+
+            </td>
+
         </tr>
     {% else %}
         <tr>
             <td colspan="7">no records found</td>
         </tr>
-
+        </tbody>
+        </table>
+        </div>
     {% endfor %}
-    </tbody>
-</table>
-</div>
+
 {% endblock %}

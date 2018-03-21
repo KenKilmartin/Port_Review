@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Form\FormTypeInterface;
 
 
 /**
@@ -52,11 +53,11 @@ class Port
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Review", mappedBy="port")
      */
-    private $productReview;
+    private $productReviews;
 
     public function __construct()
     {
-        $this->productReview = new ArrayCollection();
+        $this->productReviews = new ArrayCollection();
     }
 
     /**
@@ -178,9 +179,26 @@ class Port
         $this->priceRange = $priceRange;
     }
 
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return "{$this->id} {$this->description}";
+    }
+
     /**
-     * this has been reviewed by
-     * @ORM\Column(type ="string")
+     * @return mixed
      */
+    public function getProductReviews()
+    {
+        return $this->productReviews;
+    }
+
+    /**
+     * @param mixed $productReviews
+     */
+    public function setProductReviews($productReviews): void
+    {
+        $this->productReviews = $productReviews;
+    }
 
 }

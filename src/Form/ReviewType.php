@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-use App\Entity\Port;
 use App\Entity\Review;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,14 +18,8 @@ class ReviewType extends AbstractType
             ->add('numOfStars')
             ->add('user')
             ->add('date')
-        //    ->add('port');
-            ->add('port', Port::class, [
-        // list objects from this class
-        'class' => 'App:Port',
-
-        // use the 'Category.name' property as the visible option string
-        'choice_label' => 'portName',
-    ]);
+            ->add('port')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

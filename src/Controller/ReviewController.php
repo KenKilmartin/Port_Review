@@ -9,7 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Entity\Port;
 
 /**
  * @Route("/review", name="review_")
@@ -42,11 +41,6 @@ class ReviewController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-
-//            //dummy for port
-//            $repository = $this->getDoctrine()->getRepository(Port::class);
-//            $review->setPort($repository->find(1));
-
             $em->persist($review);
             $em->flush();
 

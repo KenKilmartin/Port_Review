@@ -23,7 +23,7 @@ class Review
      *
     private $portReview;
     /**
-     * this is the actual review
+     * this is the actual text content review
      * @Assert\Length (min = 10,max = 250)
      * @ORM\Column(type ="string")
      */
@@ -56,7 +56,7 @@ class Review
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Port", inversedBy="productReview")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Port", inversedBy="productReviews")
      * @ORM\JoinColumn(name="port_id", referencedColumnName="id")
      */
     private $port;
@@ -72,27 +72,10 @@ class Review
     /**
      * @param mixed $port
      */
-    public function setPort($port): void
+    public function setPort(Port $port = null): void
     {
         $this->port = $port;
     }
-
-//    public function getPort(): Port
-//    {
-//        return $this->port;
-//    }
-//
-//    public function setPort(Port $port)
-//    {
-//        $this->port = $port;
-//    }
-
-
-
-
-
-
-
 
     /**
      * @return mixed
@@ -124,22 +107,6 @@ class Review
     public function setReview($review): void
     {
         $this->review = $review;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPortReview()
-    {
-        return $this->portReview;
-    }
-
-    /**
-     * @param mixed $portReview
-     */
-    public function setPortReview($portReview): void
-    {
-        $this->portReview = $portReview;
     }
 
     /**
@@ -221,6 +188,12 @@ class Review
     {
         $this->date = $date;
     }
+
+
+
+
+
+
 
 
 }
