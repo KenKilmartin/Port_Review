@@ -38,10 +38,11 @@
 
     </table>
 
-    <a href="{{ path('review_index') }}">back to list</a>
+    <a href="{{ path('homepage') }}">back to list</a>
 
+    {% if is_granted('ROLE_USER') %}
     <a href="{{ path('review_edit', {'id': review.id}) }}">edit</a>
 
     {% include 'review/_delete_form.html.twig' with {'identifier': review.id} only %}
-
+{% endif %}
 {% endblock %}
