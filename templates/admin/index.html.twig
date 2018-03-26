@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <h1>Admin home</h1>
-    here is the secret code to the safe:
-    007123
+  <li>  <a href="{{ url('admin') }}">Easy Admin</a> </li>
+    <li>  <a href="{{ url('port_index') }}">Edit Port</a> </li>
+    <li>  <a href="{{ url('review_index') }}">Edit Reviews</a> </li>
 {% endblock %}
