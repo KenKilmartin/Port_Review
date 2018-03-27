@@ -27,7 +27,7 @@ class LoadPorts extends Fixture
 
 
             $port2 = new port();
-            $port2->setId('port ' . '1');
+            $port2->setId('port ' . '2');
             $port2->setPortName('Tesco finest LBV' );
             $port2->setPriceRange(mt_rand(10, 100));
             $port2->setIngredients('Berries ');
@@ -35,8 +35,18 @@ class LoadPorts extends Fixture
             $port2->setDescription('Cold winter Port to warm your heart');
             $port2->setReviewedBy('ken');
 
+            $port3 = new port();
+            $port3->setId('port ' . '3');
+            $port3->setPortName('Sandemans Founders Reserve Ruby Port' );
+            $port3->setPriceRange(mt_rand(10, 100));
+            $port3->setIngredients('Cherry raspberry Strawberry ');
+            $port3->setPhoto('p3.png');
+            $port3->setDescription(' Full of the power, fruit and fire that distinguishes classic Porto, ');
+            $port3->setReviewedBy('ken');
+
             $manager->persist($port1);
             $manager->persist($port2);
+            $manager->persist($port3);
 
         $manager->flush();
     }
