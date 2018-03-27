@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * this is the name space
+ */
 namespace App\Controller;
 
 use App\Entity\User;
@@ -11,6 +13,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
+ * This is the user controller
+ * Class UserController
+ * @package App\Controller
  * @Route("/user", name="user_")
  */
 class UserController extends Controller
@@ -30,6 +35,7 @@ class UserController extends Controller
     }
 
     /**
+     * this is to make a new user
      * @Route("/new", name="new")
      * @Method({"GET", "POST"})
      */
@@ -54,6 +60,7 @@ class UserController extends Controller
     }
 
     /**
+     * this is to show a new user
      * @Route("/{id}", name="show")
      * @Method("GET")
      */
@@ -65,6 +72,7 @@ class UserController extends Controller
     }
 
     /**
+     * this is to edit a new user
      * @Route("/{id}/edit", name="edit")
      * @Method({"GET", "POST"})
      */
@@ -86,6 +94,7 @@ class UserController extends Controller
     }
 
     /**
+     * this is to delete a new user
      * @Route("/{id}", name="delete")
      * @Method("DELETE")
      */

@@ -1,17 +1,21 @@
 <?php
-
+/**
+ * this is for namespace
+ */
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
+ * this is for the user
  * @ORM\Table(name="app_users")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User implements UserInterface, \Serializable
 {
     /**
+     * this is auto generated for the id
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -19,31 +23,44 @@ class User implements UserInterface, \Serializable
     private $id;
 
     /**
+     * this is the users user name
      * @ORM\Column(type="string", length=25, unique=true)
      */
     private $username;
 
     /**
+     * this is for the users password
      * @ORM\Column(type="string", length=64)
      */
     private $password;
 
     /**
+     * this takes the roles and stores them in array
      * @ORM\Column(type="json_array")
      */
     private $roles = [];
 
+    /**
+     * this is not being used any more as using bcrypt but dont want to delete as its not harming anyone
+     * @return null|string
+     */
     public function getSalt()
     {
         // no salt needed since we are using bcrypt
         return null;
     }
 
+    /**
+     * this needs to be here but if take out errors come
+     */
     public function eraseCredentials()
     {
     }
-
-    /** @see \Serializable::serialize() */
+    /**
+     * see \Serializable::serialize()
+     * this serializes password
+     * @return string
+     */
     public function serialize()
     {
         return serialize(array(
@@ -55,7 +72,10 @@ class User implements UserInterface, \Serializable
         ));
     }
 
-    /** @see \Serializable::unserialize() */
+    /**
+     * this unserializes
+     * @param string $serialized
+     */
     public function unserialize($serialized)
     {
         list (
@@ -67,6 +87,10 @@ class User implements UserInterface, \Serializable
             ) = unserialize($serialized);
     }
 
+    /**
+     * this gets the roles
+     * @return array
+     */
     public function getRoles()
     {
 //        $roles = $this->roles;
@@ -91,6 +115,7 @@ class User implements UserInterface, \Serializable
 
 
     /**
+     * this gets the id
      * @return mixed
      */
     public function getId()
@@ -99,6 +124,7 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * this sets the id
      * @param mixed $id
      */
     public function setId($id): void
@@ -107,6 +133,7 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * this gets the username
      * @return mixed
      */
     public function getUsername()
@@ -115,6 +142,7 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * this sets the username
      * @param mixed $username
      */
     public function setUsername($username): void
@@ -123,6 +151,7 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * this gets the password
      * @return mixed
      */
     public function getPassword()
@@ -131,6 +160,7 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * this sets the password
      * @param mixed $password
      */
     public function setPassword($password): void
@@ -138,8 +168,41 @@ class User implements UserInterface, \Serializable
         $this->password = $password;
     }
 
+    /**
+     * this is to link user back to reviews
+     * @ORM\OneToMany(targetEntity="App\Entity\Review", mappedBy="user")
+     */
+    private $reviews;
+    /**
+     * this is to get reviews
+     * @return mixed
+     */
+    public function getReviews():?Review
+    {
+        return $this->reviews;
+    }
 
+    /**
+     * this is to set review
+     * @param mixed $reviews
+     */
+    public function setReviews(Review $reviews = null): void
+    {
+        $this->reviews = $reviews;
+    }
+    /**
+     * this is a magic method
+     * @return string
+     */
+    public function __toString()
+    {
 
+        return "{$this->id} {$this->description}";
+    }
+    public function __construct()
+    {
+    $this->reviews = new ArrayCollection();
+    }
 
 
 }

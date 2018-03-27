@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * this is the name space
+ */
 namespace App\Controller;
 
 use App\Entity\Port;
@@ -11,13 +13,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
+ * This is the port controller
+ * Class PortController
+ * @package App\Controller
  * @Route("/port", name="port_")
  */
 class PortController extends Controller
 {
     /**
+     * this looks after the first port page
      * @Route("/", name="index")
-     *
      * @return Response
      */
     public function index()
@@ -30,6 +35,7 @@ class PortController extends Controller
     }
 
     /**
+     * this makes a new port
      * @Route("/new", name="new")
      * @Method({"GET", "POST"})
      */
@@ -54,6 +60,7 @@ class PortController extends Controller
     }
 
     /**
+     * this shows all  port
      * @Route("/{id}", name="show")
      * @Method("GET")
      */
@@ -65,6 +72,7 @@ class PortController extends Controller
     }
 
     /**
+     * this edits a new port
      * @Route("/{id}/edit", name="edit")
      * @Method({"GET", "POST"})
      */
@@ -86,6 +94,7 @@ class PortController extends Controller
     }
 
     /**
+     * this deletes a new port
      * @Route("/{id}", name="delete")
      * @Method("DELETE")
      */

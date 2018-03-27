@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * this is the name space
+ */
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -9,6 +11,7 @@ use Symfony\Component\Form\FormTypeInterface;
 
 
 /**
+ * this class looks after Port
  * @ORM\Entity(repositoryClass="App\Repository\PortRepository")
  */
 class Port
@@ -51,16 +54,22 @@ class Port
 
 
     /**
+     * this is the link between port and reviews
      * @ORM\OneToMany(targetEntity="App\Entity\Review", mappedBy="port")
      */
     private $productReviews;
 
+    /**
+     * this is the port construdtor
+     * Port constructor.
+     */
     public function __construct()
     {
         $this->productReviews = new ArrayCollection();
     }
 
     /**
+     * this gets who it is reviewed by
      * @return mixed
      */
     public function getReviewedBy()
@@ -69,6 +78,7 @@ class Port
     }
 
     /**
+     * this sets who it is reviewed by
      * @param mixed $reviewedBy
      */
     public function setReviewedBy($reviewedBy): void
@@ -85,6 +95,7 @@ class Port
 
 
     /**
+     * this gets the id
      * @return mixed
      */
     public function getId()
@@ -92,6 +103,7 @@ class Port
         return $this->id;
     }
     /**
+     * this sets the id
      * @param mixed $id
      */
     public function setId($id)
@@ -100,6 +112,7 @@ class Port
     }
 
     /**
+     * this gets the port name
      * @return mixed
      */
     public function getPortName()
@@ -108,6 +121,7 @@ class Port
     }
 
     /**
+     * this sets the port name
      * @param mixed $portName
      */
     public function setPortName($portName)
@@ -116,6 +130,7 @@ class Port
     }
 
     /**
+     * this gets the photo
      * @return mixed
      */
     public function getPhoto()
@@ -124,6 +139,7 @@ class Port
     }
 
     /**
+     * this sets the photo
      * @param mixed $photo
      */
     public function setPhoto($photo)
@@ -132,6 +148,7 @@ class Port
     }
 
     /**
+     * this gets the description
      * @return mixed
      */
     public function getDescription()
@@ -140,6 +157,7 @@ class Port
     }
 
     /**
+     * this sets the description
      * @param mixed $description
      */
     public function setDescription($description)
@@ -148,6 +166,7 @@ class Port
     }
 
     /**
+     * this gets the Ingredients
      * @return mixed
      */
     public function getIngredients()
@@ -156,6 +175,7 @@ class Port
     }
 
     /**
+     * this sets the Ingredients
      * @param mixed $ingredients
      */
     public function setIngredients($ingredients)
@@ -164,6 +184,7 @@ class Port
     }
 
     /**
+     * this gets the Price
      * @return mixed
      */
     public function getPriceRange()
@@ -172,6 +193,7 @@ class Port
     }
 
     /**
+     * this sets the Price
      * @param mixed $priceRange
      */
     public function setPriceRange($priceRange)
@@ -179,13 +201,18 @@ class Port
         $this->priceRange = $priceRange;
     }
 
+    /**
+     * this is a magic method
+     * @return string
+     */
     public function __toString()
     {
-        // TODO: Implement __toString() method.
+
         return "{$this->id} {$this->description}";
     }
 
     /**
+     * this gets Product Reviews
      * @return mixed
      */
     public function getProductReviews()
@@ -194,6 +221,7 @@ class Port
     }
 
     /**
+     * this sets Product Reviews
      * @param mixed $productReviews
      */
     public function setProductReviews($productReviews): void

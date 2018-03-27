@@ -1,14 +1,22 @@
 <?php
-
+/**
+ * this is the name space
+ */
 namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
+/**
+ * this is the admin controler
+ * Class AdminController
+ * @package App\Controller
+ */
 class AdminController extends Controller
 {
     /**
+     * this loads the first page of myadmin
      * @Route("/myadmin", name="myadmin")
      * @Security("has_role('ROLE_ADMIN')")
      */

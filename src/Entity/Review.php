@@ -1,27 +1,28 @@
 <?php
-
+/**
+ * this is for name space
+ */
 namespace App\Entity;
+
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
+ * this is the review
  * @ORM\Entity(repositoryClass="App\Repository\ReviewRepository")
  */
 class Review
 {
     /**
+     * this is auto generated
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
-    /**
-     * this is for ports name
-     * @ORM\Column(type ="string")
-     *
-    private $portReview;
+
     /**
      * this is the actual text content review
      * @Assert\Length (min = 10,max = 250)
@@ -45,8 +46,9 @@ class Review
      */
     private $numOfStars;
     /**
-     * this is for User
-     * @ORM\Column(type ="string")
+     * this is to link to users reviews
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="reviews")
+     * @ORM\Column(nullable=true)
      */
     private $user;
     /**
@@ -60,6 +62,27 @@ class Review
      * @ORM\JoinColumn(name="port_id", referencedColumnName="id")
      */
     private $port;
+
+
+    /**
+     * this is to get user and allows for null
+     * @return mixed
+     */
+    public function getUser():?User
+    {
+        return $this->user;
+    }
+
+    /**
+     * this sets a user and allows it to be null
+     * @param mixed $user
+     */
+    public function setUser(User $user = null)
+    {
+        $this->user = $user;
+    }
+
+
 
     /**
      * @return mixed
@@ -160,18 +183,18 @@ class Review
     /**
      * @return mixed
      */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param mixed $user
-     */
-    public function setUser($user): void
-    {
-        $this->user = $user;
-    }
+//    public function getUser()
+//    {
+//        return $this->user;
+//    }
+//
+//    /**
+//     * @param mixed $user
+//     */
+//    public function setUser($user): void
+//    {
+//        $this->user = $user;
+//    }
 
     /**
      * @return mixed
