@@ -16,15 +16,15 @@
             <td>{{ review.review }}</td>
         </tr>
         <tr>
-            <th>PlaceOfPurchase</th>
+            <th>Place Of Purchase</th>
             <td>{{ review.placeOfPurchase }}</td>
         </tr>
         <tr>
-            <th>PricePaid</th>
+            <th>Price Paid</th>
             <td>{{ review.pricePaid }}</td>
         </tr>
         <tr>
-            <th>NumOfStars</th>
+            <th>Number Of Stars</th>
             <td>{{ review.numOfStars }}</td>
         </tr>
         <tr>
@@ -33,7 +33,7 @@
         </tr>
         <tr>
             <th>Date</th>
-            <td>{{ review.date ? review.date|date('D-m-y') : '' }}</td>
+            <td>{{ review.date ? review.date|date('d-m-y') : '' }}</td>
         </tr>
 
     </table>

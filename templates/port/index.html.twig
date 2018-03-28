@@ -26,7 +26,7 @@
             <td><img class="items"  src="/images/{{ port.photo }}"> </td>
                 <td>{{ port.description }}</td>
                 <td>{{ port.ingredients }}</td>
-                <td>{{ port.priceRange }}</td>
+                <td>€{{ port.priceRange }}</td>
             {% if is_granted('ROLE_ADMIN') %}
                 <td>
                     <a href="{{ path('port_show', {'id': port.id}) }}">show</a>

@@ -41,12 +41,24 @@ class LoadPorts extends Fixture
             $port3->setPriceRange(mt_rand(10, 100));
             $port3->setIngredients('Cherry raspberry Strawberry ');
             $port3->setPhoto('p3.png');
-            $port3->setDescription(' Full of the power, fruit and fire that distinguishes classic Porto, ');
+            $port3->setDescription(' Full of the power, fruit and fire that distinguishes classic Porto. ');
             $port3->setReviewedBy('ken');
+
+            $port4 = new port();
+            $port4->setId('port ' . '4');
+            $port4->setPortName('Sandemans Tawny Port' );
+            $port4->setPriceRange(mt_rand(10, 100));
+            $port4->setIngredients('rasins ');
+            $port4->setPhoto('p4.png');
+            $port4->setDescription(' Clear red amber colours with a light intense body, open up to aromas of vanilla and evolved dried fruits. ');
+            $port4->setReviewedBy('ken');
 
             $manager->persist($port1);
             $manager->persist($port2);
             $manager->persist($port3);
+            $manager->persist($port4);
+
+
 
         $manager->flush();
     }

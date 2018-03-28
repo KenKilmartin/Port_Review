@@ -10,9 +10,9 @@
             <tr>
                 <th>Id</th>
                 <th>Review</th>
-                <th>PlaceOfPurchase</th>
-                <th>PricePaid</th>
-                <th>NumOfStars</th>
+                <th>Place Of Purchase</th>
+                <th>Price Paid</th>
+                <th>Number Of Stars</th>
                 <th>User</th>
                 <th>Date</th>
                 <th>actions</th>
@@ -27,7 +27,7 @@
                 <td>{{ review.pricePaid }}</td>
                 <td>{{ review.numOfStars }}</td>
                 <td>{{ review.user }}</td>
-                <td>{{ review.date ? review.date|date('D-m-y') : '' }}</td>
+                <td>{{ review.date ? review.date|date('d-m-y') : '' }}</td>
 
                 <td>
 

@@ -18,7 +18,7 @@
             <th>Description</th>
             <th>Ingredients</th>
             <th>Price</th>
-            <th>See Reviews</th>
+            <th>Reviews</th>
         </tr>
         </thead>
         <tbody>
@@ -27,7 +27,7 @@
             <td><img class="items"  src="/images/{{ port.photo }}"> </td>
             <td>{{ port.description }}</td>
             <td>{{ port.ingredients }}</td>
-            <td>{{ port.priceRange }}</td>
+            <td>€{{ port.priceRange }}</td>
 
             <td>
                 {% for review in port.productReviews %}
