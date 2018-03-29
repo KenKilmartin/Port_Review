@@ -13,41 +13,46 @@
             <td>{{ review.review }}</td>
         </tr>
         <tr>
-            <th>Place Of Purchase</th>
+            <th>PlaceOfPurchase</th>
             <td>{{ review.placeOfPurchase }}</td>
         </tr>
         <tr>
-            <th>Price Paid</th>
+            <th>PricePaid</th>
             <td>{{ review.pricePaid }}</td>
         </tr>
-        <p><b> Rating out of 5 stars :     </b>
+        <tr>
+            <p><b> Rating : </b>
 
 
-            {% set starsLeft = 0 %}
-            {% for i in range(1, review.numOfStars, 1) %}                               	{% set starsLeft = i %}
-                <img class="review_star" src="/images/full_star.png" alt="star">
-            {% endfor %}
-            {%  if review.numOfStars - starsLeft != 0%}
-                <img class="review_star" src="/images/half_star.png" alt="star">
-            {% endif %}
-        <p><b>  {{ review.numOfStars }} /5 </b></p>
-        </p>
+                {% set starsLeft = 0 %}
+                {% for i in range(1, review.numOfStars, 1) %}                               	{% set starsLeft = i %}
+                    <img class="review_star" src="/images/full_star.png" alt="star">
+                {% endfor %}
+                {%  if review.numOfStars - starsLeft != 0%}
+                    <img class="review_star" src="/images/half_star.png" alt="star">
+                {% endif %}
+            <p><b>  {{ review.numOfStars }} /5 </b></p>
+            </p>
+        </tr>
         <tr>
             <th>User</th>
             <td>{{ review.user }}</td>
         </tr>
         <tr>
             <th>Date</th>
-            <td>{{ review.date ? review.date|date('d-m-y') : '' }}</td>
+            <td>{{ review.date ? review.date|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>IsPublic</th>
+            <td>{{ review.isPublic ? 'Yes' : 'No' }}</td>
         </tr>
 
     </table>
 
-    <a href="{{ path('homepage') }}">back to list</a>
-
+    <a href="{{ path('review_index') }}">back to list</a>
     {% if is_granted('ROLE_USER') %}
     <a href="{{ path('review_edit', {'id': review.id}) }}">edit</a>
 
     {% include 'review/_delete_form.html.twig' with {'identifier': review.id} only %}
-{% endif %}
+    {% endif %}
 {% endblock %}

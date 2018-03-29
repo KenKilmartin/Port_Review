@@ -24,6 +24,9 @@ class LoadPorts extends Fixture
             $port1->setPhoto('p1.png');
             $port1->setDescription('Ah lovely port with nodes of berries and a summer day');
             $port1->setReviewedBy('ken');
+            $port1->setIsPublic('true');
+
+
 
 
             $port2 = new port();
@@ -34,6 +37,7 @@ class LoadPorts extends Fixture
             $port2->setPhoto('p2.jpg');
             $port2->setDescription('Cold winter Port to warm your heart');
             $port2->setReviewedBy('ken');
+            $port2->setIsPublic('true');
 
             $port3 = new port();
             $port3->setId('port ' . '3');
@@ -43,6 +47,7 @@ class LoadPorts extends Fixture
             $port3->setPhoto('p3.png');
             $port3->setDescription(' Full of the power, fruit and fire that distinguishes classic Porto. ');
             $port3->setReviewedBy('ken');
+            $port3->setIsPublic('true');
 
             $port4 = new port();
             $port4->setId('port ' . '4');
@@ -52,6 +57,7 @@ class LoadPorts extends Fixture
             $port4->setPhoto('p4.png');
             $port4->setDescription(' Clear red amber colours with a light intense body, open up to aromas of vanilla and evolved dried fruits. ');
             $port4->setReviewedBy('ken');
+            $port4->setIsPublic('true');
 
             $manager->persist($port1);
             $manager->persist($port2);

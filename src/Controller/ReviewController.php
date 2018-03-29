@@ -1,7 +1,5 @@
 <?php
-/**
- * this is the name space
- */
+
 namespace App\Controller;
 
 use App\Entity\Review;
@@ -13,16 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * this is the review controller
- * Class ReviewController
- * @package App\Controller
  * @Route("/review", name="review_")
  */
 class ReviewController extends Controller
 {
     /**
-     * this is to see the main index
      * @Route("/", name="index")
+     *
      * @return Response
      */
     public function index()
@@ -35,7 +30,6 @@ class ReviewController extends Controller
     }
 
     /**
-     * this is to make new review
      * @Route("/new", name="new")
      * @Method({"GET", "POST"})
      */
@@ -50,7 +44,7 @@ class ReviewController extends Controller
             $em->persist($review);
             $em->flush();
 
-            return $this->redirectToRoute('homepage', ['id' => $review->getId()]);
+            return $this->redirectToRoute('review_edit', ['id' => $review->getId()]);
         }
 
         return $this->render('review/new.html.twig', [
@@ -60,7 +54,6 @@ class ReviewController extends Controller
     }
 
     /**
-     * this is to to show the reviews
      * @Route("/{id}", name="show")
      * @Method("GET")
      */
@@ -72,7 +65,6 @@ class ReviewController extends Controller
     }
 
     /**
-     * this is to edit the reviews
      * @Route("/{id}/edit", name="edit")
      * @Method({"GET", "POST"})
      */
@@ -94,7 +86,6 @@ class ReviewController extends Controller
     }
 
     /**
-     * this is to delete a review
      * @Route("/{id}", name="delete")
      * @Method("DELETE")
      */
@@ -108,6 +99,6 @@ class ReviewController extends Controller
         $em->remove($review);
         $em->flush();
 
-        return $this->redirectToRoute('homepage');
+        return $this->redirectToRoute('review_index');
     }
 }

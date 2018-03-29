@@ -62,6 +62,11 @@ class Review
      * @ORM\JoinColumn(name="port_id", referencedColumnName="id")
      */
     private $port;
+    /**
+     * This is to see if the port is public or not
+     * @ORM\Column(type ="boolean")
+     */
+    private $isPublic;
 
 
     /**
@@ -195,18 +200,7 @@ class Review
     /**
      * @return mixed
      */
-//    public function getUser()
-//    {
-//        return $this->user;
-//    }
-//
-//    /**
-//     * @param mixed $user
-//     */
-//    public function setUser($user): void
-//    {
-//        $this->user = $user;
-//    }
+
 
     /**
      * this gets the date
@@ -225,6 +219,26 @@ class Review
     {
         $this->date = $date;
     }
+
+    /**
+     * this is to get if it is public
+     * @return mixed
+     */
+    public function getisPublic()
+    {
+        return $this->isPublic;
+    }
+
+    /**
+     * this is to set if it is public
+     * @param mixed $isPublic
+     */
+    public function setIsPublic($isPublic): void
+    {
+        $this->isPublic = $isPublic;
+    }
+
+
 
 
 

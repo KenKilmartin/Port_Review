@@ -9,25 +9,32 @@
         <thead>
             <tr>
 
-                <th>PortName</th>
+                <th>Port Name</th>
                 <th>Photo</th>
                 <th>Description</th>
-                <th>ingredients</th>
-                <th>Price</th>
-
-
+                <th>Ingredients</th>
+                <th>Price </th>
+                <th>Reviewed By</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                <th>Is Public</th>
+                <th>actions</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
         {% for port in ports %}
             <tr>
-                {#<td>{{ port.id }}</td>#}
+
                 <td>{{ port.portName }}</td>
-            <td><img class="items"  src="/images/{{ port.photo }}"> </td>
+                <td>{{ port.photo }}</td>
                 <td>{{ port.description }}</td>
                 <td>{{ port.ingredients }}</td>
-                <td>€{{ port.priceRange }}</td>
+                <td>€ {{ port.priceRange }}</td>
+                 <td>{{ port.reviewedBy }}</td>
             {% if is_granted('ROLE_ADMIN') %}
+                <td>{{ port.isPublic ? 'Yes' : 'No' }}</td>
+
+
                 <td>
                     <a href="{{ path('port_show', {'id': port.id}) }}">show</a>
                     <a href="{{ path('port_edit', {'id': port.id}) }}">edit</a>
@@ -36,7 +43,7 @@
             {% endif %}
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="9">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

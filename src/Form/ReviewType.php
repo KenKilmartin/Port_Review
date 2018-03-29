@@ -18,6 +18,7 @@ class ReviewType extends AbstractType
             ->add('numOfStars')
             ->add('user')
             ->add('date')
+            ->add('isPublic')
             ->add('port')
         ;
     }
