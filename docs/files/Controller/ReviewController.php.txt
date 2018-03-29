@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
  * this is the review controller
  * Class ReviewController
  * @package App\Controller
+ * @Route("/review", name="review_")
  */
 class ReviewController extends Controller
 {

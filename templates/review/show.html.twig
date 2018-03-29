@@ -7,10 +7,7 @@
     <h1>Review</h1>
 
     <table>
-        {#<tr>#}
-            {#<th>Id</th>#}
-            {#<td>{{ review.id }}</td>#}
-        {#</tr>#}
+
         <tr>
             <th>Review</th>
             <td>{{ review.review }}</td>
@@ -23,10 +20,18 @@
             <th>Price Paid</th>
             <td>{{ review.pricePaid }}</td>
         </tr>
-        <tr>
-            <th>Number Of Stars</th>
-            <td>{{ review.numOfStars }}</td>
-        </tr>
+        <p><b> Rating out of 5 stars :     </b>
+
+
+            {% set starsLeft = 0 %}
+            {% for i in range(1, review.numOfStars, 1) %}                               	{% set starsLeft = i %}
+                <img class="review_star" src="/images/full_star.png" alt="star">
+            {% endfor %}
+            {%  if review.numOfStars - starsLeft != 0%}
+                <img class="review_star" src="/images/half_star.png" alt="star">
+            {% endif %}
+
+        </p>
         <tr>
             <th>User</th>
             <td>{{ review.user }}</td>

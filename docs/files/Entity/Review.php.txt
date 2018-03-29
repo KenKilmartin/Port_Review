@@ -1,6 +1,6 @@
 <?php
 /**
- * this is for name space
+ * this is the name space
  */
 namespace App\Entity;
 
@@ -68,7 +68,7 @@ class Review
      * this is to get user and allows for null
      * @return mixed
      */
-    public function getUser():?User
+    public function getUser()
     {
         return $this->user;
     }
@@ -77,7 +77,7 @@ class Review
      * this sets a user and allows it to be null
      * @param mixed $user
      */
-    public function setUser(User $user = null)
+    public function setUser($user)
     {
         $this->user = $user;
     }
@@ -85,6 +85,7 @@ class Review
 
 
     /**
+     * this gets the port and allows for null
      * @return mixed
      */
     public function getPort():?Port
@@ -93,6 +94,7 @@ class Review
     }
 
     /**
+     * this sets port and allows for null
      * @param mixed $port
      */
     public function setPort(Port $port = null): void
@@ -101,6 +103,7 @@ class Review
     }
 
     /**
+     * this gets the id
      * @return mixed
      */
     public function getId()
@@ -109,6 +112,7 @@ class Review
     }
 
     /**
+     * this sets the id
      * @param mixed $id
      */
     public function setId($id): void
@@ -117,6 +121,7 @@ class Review
     }
 
     /**
+     * this gets the review
      * @return mixed
      */
     public function getReview()
@@ -125,6 +130,7 @@ class Review
     }
 
     /**
+     * this sets the review
      * @param mixed $review
      */
     public function setReview($review): void
@@ -133,6 +139,7 @@ class Review
     }
 
     /**
+     * this gets place of purchase
      * @return mixed
      */
     public function getPlaceOfPurchase()
@@ -141,6 +148,7 @@ class Review
     }
 
     /**
+     * sets the place of purchase
      * @param mixed $placeOfPurchase
      */
     public function setPlaceOfPurchase($placeOfPurchase): void
@@ -149,6 +157,7 @@ class Review
     }
 
     /**
+     * this gets price paid
      * @return mixed
      */
     public function getPricePaid()
@@ -157,6 +166,7 @@ class Review
     }
 
     /**
+     * this sets price paid
      * @param mixed $pricePaid
      */
     public function setPricePaid($pricePaid): void
@@ -165,6 +175,7 @@ class Review
     }
 
     /**
+     * this gets the number of stars
      * @return mixed
      */
     public function getNumOfStars()
@@ -173,6 +184,7 @@ class Review
     }
 
     /**
+     * sets the number of stars
      * @param mixed $numOfStars
      */
     public function setNumOfStars($numOfStars): void
@@ -197,6 +209,7 @@ class Review
 //    }
 
     /**
+     * this gets the date
      * @return mixed
      */
     public function getDate()
@@ -205,6 +218,7 @@ class Review
     }
 
     /**
+     * this sets the date
      * @param mixed $date
      */
     public function setDate($date): void

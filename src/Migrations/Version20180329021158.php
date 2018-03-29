@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20180327222525 extends AbstractMigration
+class Version20180329021158 extends AbstractMigration
 {
     public function up(Schema $schema)
     {
@@ -16,7 +16,7 @@ class Version20180327222525 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('CREATE TABLE port (id INT AUTO_INCREMENT NOT NULL, port_name VARCHAR(255) NOT NULL, photo VARCHAR(255) NOT NULL, description VARCHAR(255) NOT NULL, ingredients VARCHAR(255) NOT NULL, price_range INT NOT NULL, reviewed_by VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE review (id INT AUTO_INCREMENT NOT NULL, port_id INT DEFAULT NULL, review VARCHAR(255) NOT NULL, place_of_purchase VARCHAR(255) NOT NULL, price_paid DOUBLE PRECISION NOT NULL, num_of_stars INT NOT NULL, user VARCHAR(255) DEFAULT NULL, date DATE NOT NULL, INDEX IDX_794381C676E92A9C (port_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE review (id INT AUTO_INCREMENT NOT NULL, port_id INT DEFAULT NULL, review VARCHAR(255) NOT NULL, place_of_purchase VARCHAR(255) NOT NULL, price_paid DOUBLE PRECISION NOT NULL, num_of_stars DOUBLE PRECISION NOT NULL, user VARCHAR(255) DEFAULT NULL, date DATE NOT NULL, INDEX IDX_794381C676E92A9C (port_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE app_users (id INT AUTO_INCREMENT NOT NULL, username VARCHAR(25) NOT NULL, password VARCHAR(64) NOT NULL, roles JSON NOT NULL COMMENT \'(DC2Type:json_array)\', UNIQUE INDEX UNIQ_C2502824F85E0677 (username), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('ALTER TABLE review ADD CONSTRAINT FK_794381C676E92A9C FOREIGN KEY (port_id) REFERENCES port (id)');
     }

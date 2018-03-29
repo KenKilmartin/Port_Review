@@ -60,7 +60,7 @@ class Port
     private $productReviews;
 
     /**
-     * this is the port construdtor
+     * this is the port constructor
      * Port constructor.
      */
     public function __construct()

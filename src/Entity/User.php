@@ -105,7 +105,7 @@ class User implements UserInterface, \Serializable
     /**
      * Set roles
      *
-     * @param array $roles *
+     * @param array $roles
      * @return User
      */
     public function setRoles($roles)
@@ -202,7 +202,7 @@ class User implements UserInterface, \Serializable
     }
     public function __construct()
     {
-    $this->reviews = new ArrayCollection();
+        $this->reviews = new ArrayCollection();
     }
 
 
