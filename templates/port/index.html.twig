@@ -16,23 +16,46 @@
                 <th>Price </th>
                 {% if is_granted('ROLE_ADMIN') %}
                 <th>Submitted By</th>
-
                 <th>Is Public</th>
                 <th>Actions</th>
                 {% endif %}
             </tr>
         </thead>
         <tbody>
-        {% for port in ports %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {% for port in ports %}
             <tr>
 
                 <td>{{ port.portName }}</td>
-                <td><img class="items"  src="/images/{{ port.photo }}"></td>
+                <td><img class="items"  src="/images/{{ port.photo }}" alt="{{ port.photo }}"></td>
                 <td>{{ port.description }}</td>
                 <td>{{ port.ingredients }}</td>
                 <td>€ {{ port.priceRange }}</td>
             {% if is_granted('ROLE_ADMIN') %}
                  <td>{{ port.reviewedBy }}</td>
+                <td>{{ port.isPublic ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('port_show', {'id': port.id}) }}">show</a>
+                    <a href="{{ path('port_edit', {'id': port.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% endif %}
+            {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        {% for port in ports if port.isPublic %}
+            <tr>
+
+            <td>{{ port.portName }}</td>
+            <td><img class="items"  src="/images/{{ port.photo }}" alt="{{ port.photo }}"></td>
+            <td>{{ port.description }}</td>
+            <td>{{ port.ingredients }}</td>
+            <td>€ {{ port.priceRange }}</td>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td>{{ port.reviewedBy }}</td>
                 <td>{{ port.isPublic ? 'Yes' : 'No' }}</td>
 
 
@@ -40,13 +63,14 @@
                     <a href="{{ path('port_show', {'id': port.id}) }}">show</a>
                     <a href="{{ path('port_edit', {'id': port.id}) }}">edit</a>
                 </td>
-            </tr>
+                </tr>
             {% endif %}
         {% else %}
             <tr>
                 <td colspan="9">no records found</td>
             </tr>
         {% endfor %}
+{% endif %}
         </tbody>
     </table>
     {% if is_granted('ROLE_ADMIN') %}
