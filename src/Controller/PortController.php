@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * this is for name space
+ */
 namespace App\Controller;
 
 use App\Entity\Port;
@@ -44,7 +46,7 @@ class PortController extends Controller
             $em->persist($port);
             $em->flush();
 
-            return $this->redirectToRoute('port_edit', ['id' => $port->getId()]);
+            return $this->redirectToRoute('homepage', ['id' => $port->getId()]);
         }
 
         return $this->render('port/new.html.twig', [
@@ -76,7 +78,7 @@ class PortController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('port_edit', ['id' => $port->getId()]);
+            return $this->redirectToRoute('homepage', ['id' => $port->getId()]);
         }
 
         return $this->render('port/edit.html.twig', [

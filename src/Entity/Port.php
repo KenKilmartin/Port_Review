@@ -65,6 +65,7 @@ class Port
     private $isPublic;
 
     /**
+     * this function is to get if post is public or not
      * @return mixed
      */
     public function getisPublic()
@@ -73,6 +74,7 @@ class Port
     }
 
     /**
+     * this function is to set if post is public or not
      * @param mixed $isPublic
      */
     public function setIsPublic($isPublic): void

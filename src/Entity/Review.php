@@ -198,11 +198,6 @@ class Review
     }
 
     /**
-     * @return mixed
-     */
-
-
-    /**
      * this gets the date
      * @return mixed
      */

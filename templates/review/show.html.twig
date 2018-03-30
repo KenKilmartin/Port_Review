@@ -13,11 +13,11 @@
             <td>{{ review.review }}</td>
         </tr>
         <tr>
-            <th>PlaceOfPurchase</th>
+            <th>Place Of Purchase</th>
             <td>{{ review.placeOfPurchase }}</td>
         </tr>
         <tr>
-            <th>PricePaid</th>
+            <th>Price Paid</th>
             <td>{{ review.pricePaid }}</td>
         </tr>
         <tr>
@@ -40,13 +40,14 @@
         </tr>
         <tr>
             <th>Date</th>
-            <td>{{ review.date ? review.date|date('Y-m-d') : '' }}</td>
+            <td>{{ review.date ? review.date|date('d-m-Y') : '' }}</td>
         </tr>
+    {% if is_granted('ROLE_Admin') %}
         <tr>
-            <th>IsPublic</th>
+            <th>Is Public</th>
             <td>{{ review.isPublic ? 'Yes' : 'No' }}</td>
         </tr>
-
+    {% endif %}
     </table>
 
     <a href="{{ path('review_index') }}">back to list</a>

@@ -58,6 +58,30 @@ class Port
      * @ORM\OneToMany(targetEntity="App\Entity\Review", mappedBy="port")
      */
     private $productReviews;
+    /**
+     * This is to see if the port is public or not
+     * @ORM\Column(type ="boolean")
+     */
+    private $isPublic;
+
+    /**
+     * this function is to get if post is public or not
+     * @return mixed
+     */
+    public function getisPublic()
+    {
+        return $this->isPublic;
+    }
+
+    /**
+     * this function is to set if post is public or not
+     * @param mixed $isPublic
+     */
+    public function setIsPublic($isPublic): void
+    {
+        $this->isPublic = $isPublic;
+    }
+
 
     /**
      * this is the port constructor

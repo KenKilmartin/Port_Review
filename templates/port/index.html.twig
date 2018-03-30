@@ -14,10 +14,11 @@
                 <th>Description</th>
                 <th>Ingredients</th>
                 <th>Price </th>
-                <th>Reviewed By</th>
                 {% if is_granted('ROLE_ADMIN') %}
+                <th>Submitted By</th>
+
                 <th>Is Public</th>
-                <th>actions</th>
+                <th>Actions</th>
                 {% endif %}
             </tr>
         </thead>
@@ -26,12 +27,12 @@
             <tr>
 
                 <td>{{ port.portName }}</td>
-                <td>{{ port.photo }}</td>
+                <td><img class="items"  src="/images/{{ port.photo }}"></td>
                 <td>{{ port.description }}</td>
                 <td>{{ port.ingredients }}</td>
                 <td>€ {{ port.priceRange }}</td>
-                 <td>{{ port.reviewedBy }}</td>
             {% if is_granted('ROLE_ADMIN') %}
+                 <td>{{ port.reviewedBy }}</td>
                 <td>{{ port.isPublic ? 'Yes' : 'No' }}</td>
 
 

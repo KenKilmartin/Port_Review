@@ -32,7 +32,7 @@ class LoadPorts extends Fixture
             $port2 = new port();
             $port2->setId('port ' . '2');
             $port2->setPortName('Tesco finest LBV' );
-            $port2->setPriceRange(mt_rand(10, 100));
+            $port2->setPriceRange(mt_rand(10, 50));
             $port2->setIngredients('Berries ');
             $port2->setPhoto('p2.jpg');
             $port2->setDescription('Cold winter Port to warm your heart');
@@ -41,7 +41,7 @@ class LoadPorts extends Fixture
 
             $port3 = new port();
             $port3->setId('port ' . '3');
-            $port3->setPortName('Sandemans Founders Reserve Ruby Port' );
+            $port3->setPortName('Sandemans  Ruby Port' );
             $port3->setPriceRange(mt_rand(10, 100));
             $port3->setIngredients('Cherry raspberry Strawberry ');
             $port3->setPhoto('p3.png');
@@ -59,10 +59,21 @@ class LoadPorts extends Fixture
             $port4->setReviewedBy('ken');
             $port4->setIsPublic('true');
 
+            $port5 = new port();
+            $port5->setId('port ' . '5');
+            $port5->setPortName('Offaly Ruby Port' );
+            $port5->setPriceRange(mt_rand(10, 100));
+            $port5->setIngredients('grapes and dreams ');
+            $port5->setPhoto('p5.png');
+            $port5->setDescription(' A warm feeling inside like a fire roaring in your stomach. ');
+            $port5->setReviewedBy('matt smith');
+            $port5->setIsPublic('false');
+
             $manager->persist($port1);
             $manager->persist($port2);
             $manager->persist($port3);
             $manager->persist($port4);
+            $manager->persist($port5);
 
 
 

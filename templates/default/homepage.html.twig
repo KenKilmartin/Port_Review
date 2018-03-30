@@ -19,6 +19,11 @@
             <th>Ingredients</th>
             <th id ="price">Price</th>
             <th id ="rev">Reviews</th>
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <th>Public</th>
+                <th>actions</th>
+            {% endif %}
         </tr>
         </thead>
         <tbody>
@@ -36,6 +41,15 @@
 
 
             </td>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td>{{ port.isPublic ? 'Yes' : 'No' }}</td>
+
+
+                <td>
+                     <a href="{{ path('port_edit', {'id': port.id}) }}">edit</a>
+                </td>
+
+            {% endif %}
 
         </tr>
     {% else %}

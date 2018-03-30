@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * this is for name space controller
+ */
 namespace App\Controller;
 
 use App\Entity\Review;
@@ -44,7 +47,7 @@ class ReviewController extends Controller
             $em->persist($review);
             $em->flush();
 
-            return $this->redirectToRoute('review_edit', ['id' => $review->getId()]);
+            return $this->redirectToRoute('homepage', ['id' => $review->getId()]);
         }
 
         return $this->render('review/new.html.twig', [
@@ -76,7 +79,7 @@ class ReviewController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('review_edit', ['id' => $review->getId()]);
+            return $this->redirectToRoute('homepage', ['id' => $review->getId()]);
         }
 
         return $this->render('review/edit.html.twig', [
