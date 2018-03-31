@@ -28,7 +28,16 @@ class PortController extends Controller
             ->getRepository(Port::class)
             ->findAll();
 
-        return $this->render('port/index.html.twig', ['ports' => $ports]);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $ports, /* query NOT result */
+            (1)/*page number*/,
+            1000/*limit per page*/
+        );
+
+
+        return $this->render('port/index.html.twig', ['ports' => $ports, 'pagination' => $pagination]);
     }
 
     /**
@@ -103,4 +112,77 @@ class PortController extends Controller
 
         return $this->redirectToRoute('port_index');
     }
+
+//_________________________________________________________________________________________
+
+
+    /**
+     * @Route("/processSearch", name="processSearch")
+     * @param Request $request
+     * @return Response
+     */
+    public function processSearch(Request $request)
+    {
+
+        $filter = $request->query->get('q');
+        $qb = $this->getDoctrine()
+            ->getRepository(Port::class)
+            ->findAllQueryBuilder($filter);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $qb,
+            (1)/*page number*/,
+            1000/*limit per page*/
+        );
+
+        return $this->render('port/index.html.twig', [ 'pagination' => $pagination]);
+
+    }
+
+    /**
+     * @Route("/processDateSearch", name="processDateSearch")
+     * @param Request $request
+     * @return Response
+     */
+    public function processDateSearch(Request $request)
+    {
+        $date1St = $request->query->get('d1');
+
+        $date2St = $request->query->get('d2');
+
+        if($date1St!=""&&$date2St!=""){
+            $date1 = new \DateTime($date1St);
+            $date2 = new \DateTime($date2St);
+            $qb = $this->getDoctrine()
+                ->getRepository(Port::class)
+                ->findAllByDateQueryBuilder($date1, $date2);
+
+            $paginator  = $this->get('knp_paginator');
+            $pagination = $paginator->paginate(
+                $qb,
+                (1)/*page number*/,
+                1000/*limit per page*/
+            );
+            return $this->render('port/index.html.twig', [ 'pagination' => $pagination]);
+        }else{
+            return $this->index();
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

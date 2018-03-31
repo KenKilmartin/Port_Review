@@ -178,7 +178,7 @@ class User implements UserInterface, \Serializable
      * this is to get reviews
      * @return mixed
      */
-    public function getReviews():?Review   // this is causing some issue with
+    public function getReviews()   // this is causing some issue with
     {
         return $this->reviews;
     }
@@ -187,7 +187,7 @@ class User implements UserInterface, \Serializable
      * this is to set review
      * @param mixed $reviews
      */
-    public function setReviews(Review $reviews = null): void
+    public function setReviews($reviews)
     {
         $this->reviews = $reviews;
     }

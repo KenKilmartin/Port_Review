@@ -1,10 +1,14 @@
 <?php
+
+
 namespace App\DataFixtures;
 
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
+
 
 
 class LoadUsers extends Fixture
@@ -26,6 +30,26 @@ class LoadUsers extends Fixture
         $userAdmin = $this->createUser('admin', 'admin', ['ROLE_ADMIN']);
         $userMatt = $this->createUser('matt', 'smith', ['ROLE_SUPER_ADMIN']);
         $userKen = $this->createUser('ken', 'pass', ['ROLE_SUPER_ADMIN']);
+
+        // creating faker users
+
+//        $faker = \Faker\Factory::create();
+//
+//        $numUsers = 10;
+//        for ($i=0; $i < $numUsers; $i++) {
+//            $firstName = $faker->firstNameMale;
+//            $password = $faker->password;
+//            $role = ('user');
+//            $fakerUser = new FakerUser();
+//            $fakerUser->setFirstName($firstName);
+//            $fakerUser->setPassword($password);
+//            $fakerUser->setRole($role);
+//            $manager->persist($fakerUser);
+//        }
+
+
+
+
 
         // store to DB
         $manager->persist($userUser);

@@ -4,33 +4,63 @@
 
 {% block body %}
 
-    <h1>Port index</h1>
+    <form action="/port/processSearch" style="float: left">
+        <h4>Search by Text</h4>
+        <div>
+            <input type="search" id="mySearch" name="q">
+            <br>
+            <button>Search Port</button>
+
+        </div>
+    </form>
+
+    <form action="/port/processDateSearch" style="float: right">
+
+    <h4>Search Between Dates</h4>
+    Start Date:
+    <input type="date" name="d1">
+    <br>
+    End Date:
+    <input type="date" name="d2">
+    <br>
+    <button>Search Ports by Date</button>
+
+
+    </form>
+
+    <h1 style="clear: both" >Port index</h1>
     <table>
+    {% block pagination_head %}
         <thead>
             <tr>
-
-                <th>Port Name</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Port Name', 'portName') }}</th>
                 <th>Photo</th>
-                <th>Description</th>
-                <th>Ingredients</th>
-                <th>Price </th>
+                <th style="width:100px">{{ knp_pagination_sortable(pagination, 'Date', 'date') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Description', 'description') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Ingredients', 'ingredients') }}</th>
+                <th style="width:60px">{{ knp_pagination_sortable(pagination, 'Price Range', 'priceRange') }}</th>
                 {% if is_granted('ROLE_ADMIN') %}
-                <th>Submitted By</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Submitted By', 'reviewedBy') }}</th>
+
+
                 <th>Is Public</th>
                 <th>Actions</th>
                 {% endif %}
             </tr>
         </thead>
+    {% endblock %}
         <tbody>
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            {% for port in ports %}
+        {% for port in pagination %}
             <tr>
 
                 <td>{{ port.portName }}</td>
                 <td><img class="items"  src="/images/{{ port.photo }}" alt="{{ port.photo }}"></td>
+                <td>{{ port.date ? port.date|date('d-m-Y') : '' }}</td>
                 <td>{{ port.description }}</td>
                 <td>{{ port.ingredients }}</td>
                 <td>€ {{ port.priceRange }}</td>
+
             {% if is_granted('ROLE_ADMIN') %}
                  <td>{{ port.reviewedBy }}</td>
                 <td>{{ port.isPublic ? 'Yes' : 'No' }}</td>
@@ -46,11 +76,12 @@
             </tr>
         {% endfor %}
     {% else %}
-        {% for port in ports if port.isPublic %}
+        {% for port in pagination if port.isPublic %}
             <tr>
 
             <td>{{ port.portName }}</td>
             <td><img class="items"  src="/images/{{ port.photo }}" alt="{{ port.photo }}"></td>
+            <td>{{ port.date }}</td>
             <td>{{ port.description }}</td>
             <td>{{ port.ingredients }}</td>
             <td>€ {{ port.priceRange }}</td>

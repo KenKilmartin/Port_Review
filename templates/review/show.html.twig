@@ -49,6 +49,31 @@
             <th>Date</th>
             <td>{{ review.date ? review.date|date('d-m-Y') : '' }}</td>
         </tr>
+
+        <tr>
+            <th>Votes</th>
+            {% if review.votes < 0 %}
+                <td style="color: red">{{ review.votes }}</td>
+            {% else %}
+                <td style="color: green">{{ review.votes }}</td>
+            {% endif %}
+        </tr>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <tr>
+                <th>Up Vote Review</th>
+                <td>
+                    <a href="{{ path('review_upvote', {'id': review.id }) }}">Up Vote</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Down Vote Review</th>
+                <td>
+                    <a href="{{ path('review_downvote', {'id': review.id }) }}">Down Vote</a>
+                </td>
+            </tr>
+        {% endif %}
+
+
     {% if is_granted('ROLE_Admin') %}
         <tr>
             <th>Is Public</th>
@@ -57,7 +82,7 @@
     {% endif %}
     </table>
 
-    <a href="{{ path('review_index') }}">back to list</a>
+    <a href="{{ path('homepage') }}">back to home</a>
     {% if is_granted('ROLE_USER') %}
     <a href="{{ path('review_edit', {'id': review.id}) }}">edit</a>
 

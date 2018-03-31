@@ -105,4 +105,39 @@ class ReviewController extends Controller
 
         return $this->redirectToRoute('review_index');
     }
+    /**
+     * @Route("/upVote/{id}", name="upvote")
+     * @return Response
+     */
+    public function upVote(Review $review)
+    {
+        $votes = $review->getVotes();
+        $review->setVotes($votes+1);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($review);
+
+        $em->flush();
+
+
+        return $this->render('review/show.html.twig',['review'=>$review]);
+
+    }
+    /**
+     * @Route("/downVote/{id}", name="downvote")
+     * @return Response
+     */
+    public function downVote(Review $review)
+    {
+        $votes = $review->getVotes();
+        $review->setVotes($votes-1);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($review);
+        $em->flush();
+
+
+        return $this->render('review/show.html.twig',['review'=>$review]);
+
+    }
 }

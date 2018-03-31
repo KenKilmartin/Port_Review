@@ -19,6 +19,7 @@ class PortType extends AbstractType
             ->add('priceRange')
             ->add('isPublic')
             ->add('reviewedBy')
+            ->add('date')
         ;
     }
 

@@ -65,6 +65,12 @@ class Port
     private $isPublic;
 
     /**
+     * this is so that can search for dates
+     * @ORM\Column(type ="date")
+     */
+    private $date;
+
+    /**
      * this function is to get if post is public or not
      * @return mixed
      */
@@ -252,5 +258,22 @@ class Port
     {
         $this->productReviews = $productReviews;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param mixed $date
+     */
+    public function setDate($date): void
+    {
+        $this->date = $date;
+    }
+
 
 }
