@@ -6,6 +6,7 @@
         "ext-iconv": "*",
         "doctrine/doctrine-fixtures-bundle": "^3.0",
         "easycorp/easyadmin-bundle": "^1.17",
+        "fzaninotto/faker": "^1.7",
         "koff/crud-maker-bundle": "^1.1",
         "sensio/framework-extra-bundle": "^5.1",
         "sensiolabs/security-checker": "^4.1",
@@ -60,6 +61,7 @@
         "diff": "php bin/console doctrine:migrations:diff",
         "migrate": "php bin/console doctrine:migrations:migrate",
         "doc":"php phpDocumentor.phar -d src/Controller -d src/Entity -d src/Util -t docs ",
+        "fix":"php bin/console doctrine:fixtures:load",
 
         "auto-scripts": {
             "cache:clear": "symfony-cmd",

@@ -7,8 +7,7 @@
         welcome to the home page !!
     </p>
 
-
-        <div id="merch">
+    <div id="merch">
        <table>
         <thead>
             <tr>
@@ -96,6 +95,7 @@
         {% endif %}
 
         </tbody>
+
     </table>
     {% if is_granted('ROLE_ADMIN') %}
     <a href="{{ path('port_new') }}">Create new</a>

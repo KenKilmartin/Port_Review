@@ -42,7 +42,7 @@ class Review
     private $pricePaid;
     /**
      * this is for the num of stars
-     * @ORM\Column(type ="float")
+     * @ORM\Column(type ="decimal")
      */
     private $numOfStars;
     /**

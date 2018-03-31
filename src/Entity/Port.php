@@ -232,7 +232,7 @@ class Port
     public function __toString()
     {
 
-        return "{$this->id} {$this->description}";
+        return "{$this->portName}";
     }
 
     /**
