@@ -19,18 +19,7 @@ class PortRepository extends ServiceEntityRepository
         parent::__construct($registry, Port::class);
     }
 
-    /*
-    public function findBySomething($value)
-    {
-        return $this->createQueryBuilder('p')
-            ->where('p.something = :value')->setParameter('value', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+
 
     public function findAllQueryBuilder($filter = '')
     {
@@ -54,6 +43,18 @@ class PortRepository extends ServiceEntityRepository
         return $qb;
     }
 
+    /*
+  public function findBySomething($value)
+  {
+      return $this->createQueryBuilder('p')
+          ->where('p.something = :value')->setParameter('value', $value)
+          ->orderBy('p.id', 'ASC')
+          ->setMaxResults(10)
+          ->getQuery()
+          ->getResult()
+      ;
+  }
+  */
 
 
 }

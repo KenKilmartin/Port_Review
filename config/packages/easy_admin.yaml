@@ -4,9 +4,11 @@ easy_admin:
         Port:
           class: App\Entity\Port
           form:
-            fields: ['title',  'photo', 'description', 'ingredients', 'priceRange', 'isPublic', ]
+            fields: ['portName',  'photo', 'description', 'ingredients', 'priceRange', 'isPublic', ]
         Review:
           class: App\Entity\Review
+          form:
+            fields: ['review',  'placeOfPurchase', 'pricePaid', 'numOfStars', 'user', 'isPublic','date','port','votes', ]
         User:
           class: App\Entity\User
           templates:

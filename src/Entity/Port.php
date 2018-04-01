@@ -89,14 +89,7 @@ class Port
     }
 
 
-    /**
-     * this is the port constructor
-     * Port constructor.
-     */
-    public function __construct()
-    {
-        $this->productReviews = new ArrayCollection();
-    }
+
 
     /**
      * this gets who it is reviewed by
@@ -231,15 +224,7 @@ class Port
         $this->priceRange = $priceRange;
     }
 
-    /**
-     * this is a magic method
-     * @return string
-     */
-    public function __toString()
-    {
 
-        return "{$this->portName}";
-    }
 
     /**
      * this gets Product Reviews
@@ -274,6 +259,22 @@ class Port
     {
         $this->date = $date;
     }
+    /**
+     * this is the port constructor
+     * Port constructor.
+     */
+    public function __construct()
+    {
+        $this->productReviews = new ArrayCollection();
+    }
+    /**
+     * this is a magic method
+     * @return string
+     */
+    public function __toString()
+    {
 
+        return "{$this->portName}";
+    }
 
 }

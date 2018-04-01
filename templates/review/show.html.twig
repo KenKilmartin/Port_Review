@@ -60,15 +60,13 @@
         </tr>
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <tr>
-                <th>Up Vote Review</th>
-                <td>
-                    <a href="{{ path('review_upvote', {'id': review.id }) }}">Up Vote</a>
-                </td>
+                <th>Vote Review</th>
             </tr>
             <tr>
-                <th>Down Vote Review</th>
+
                 <td>
-                    <a href="{{ path('review_downvote', {'id': review.id }) }}">Down Vote</a>
+                    <a href="{{ path('review_upvote', {'id': review.id }) }}"><img class="upVote" src="/images/up.png" alt="up" height="45" width="45"></a>
+                    <a href="{{ path('review_downvote', {'id': review.id }) }}"><img class="downVote" src="/images/down.png" alt="down" height="40" width="40"></a>
                 </td>
             </tr>
         {% endif %}
