@@ -5,8 +5,10 @@ App\Tests\Controller\PortController
  [x] Port list page status okay
 
 App\Tests\Controller\ReviewController
- [x] Login page status okay
+ [x] Review page status okay
 
 App\Tests\Controller\SecurityController
  [x] Login page status okay
+ [x] Login on right password
+ [x] Login on wrong password
 

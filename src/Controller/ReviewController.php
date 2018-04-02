@@ -1,6 +1,7 @@
 <?php
+
 /**
- * This is doc
+ * this is for name space controller
  */
 namespace App\Controller;
 
@@ -43,6 +44,7 @@ class ReviewController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $em->persist($review);
             $em->flush();
 
             return $this->redirectToRoute('homepage', ['id' => $review->getId()]);
