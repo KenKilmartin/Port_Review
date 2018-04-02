@@ -66,7 +66,7 @@ class Port
 
     /**
      * this is so that can search for dates
-     * @ORM\Column(type ="date")
+     * @ORM\Column(type ="datetime")
      */
     private $date;
 

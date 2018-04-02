@@ -1,6 +1,6 @@
 <?php
 /**
- * this is for name space
+ * this is the name space
  */
 namespace App\Controller;
 

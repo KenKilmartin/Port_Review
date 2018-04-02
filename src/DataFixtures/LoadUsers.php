@@ -11,6 +11,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
 
+
 class LoadUsers extends Fixture
 {
     /**

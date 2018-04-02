@@ -1,6 +1,6 @@
 <?php
 /**
- * this is the name space
+ * this is for namespace
  */
 namespace App\Entity;
 
