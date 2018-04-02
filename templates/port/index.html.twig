@@ -3,7 +3,7 @@
 {% block title %}Port index{% endblock %}
 
 {% block body %}
-
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
     <form action="/port/processSearch" style="float: left">
         <h4>Search by Text</h4>
         <div>
@@ -25,9 +25,8 @@
     <br>
     <button>Search Ports by Date</button>
 
-
     </form>
-
+    {% endif %}
     <h1 style="clear: both" >Port index</h1>
     <table>
     {% block pagination_head %}
@@ -81,7 +80,7 @@
 
             <td>{{ port.portName }}</td>
             <td><img class="items"  src="/images/{{ port.photo }}" alt="{{ port.photo }}"></td>
-            <td>{{ port.date }}</td>
+            <td>{{ port.date ? port.date|date('d-m-Y') : '' }}</td>
             <td>{{ port.description }}</td>
             <td>{{ port.ingredients }}</td>
             <td>€ {{ port.priceRange }}</td>

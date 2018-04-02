@@ -245,6 +245,7 @@ class Port
     }
 
     /**
+     * this gates the date
      * @return mixed
      */
     public function getDate()
@@ -253,6 +254,7 @@ class Port
     }
 
     /**
+     * this sets the date
      * @param mixed $date
      */
     public function setDate($date): void

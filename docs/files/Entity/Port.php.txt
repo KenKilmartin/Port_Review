@@ -65,6 +65,12 @@ class Port
     private $isPublic;
 
     /**
+     * this is so that can search for dates
+     * @ORM\Column(type ="date")
+     */
+    private $date;
+
+    /**
      * this function is to get if post is public or not
      * @return mixed
      */
@@ -83,14 +89,7 @@ class Port
     }
 
 
-    /**
-     * this is the port constructor
-     * Port constructor.
-     */
-    public function __construct()
-    {
-        $this->productReviews = new ArrayCollection();
-    }
+
 
     /**
      * this gets who it is reviewed by
@@ -225,15 +224,7 @@ class Port
         $this->priceRange = $priceRange;
     }
 
-    /**
-     * this is a magic method
-     * @return string
-     */
-    public function __toString()
-    {
 
-        return "{$this->id} {$this->description}";
-    }
 
     /**
      * this gets Product Reviews
@@ -251,6 +242,41 @@ class Port
     public function setProductReviews($productReviews): void
     {
         $this->productReviews = $productReviews;
+    }
+
+    /**
+     * this gates the date
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * this sets the date
+     * @param mixed $date
+     */
+    public function setDate($date): void
+    {
+        $this->date = $date;
+    }
+    /**
+     * this is the port constructor
+     * Port constructor.
+     */
+    public function __construct()
+    {
+        $this->productReviews = new ArrayCollection();
+    }
+    /**
+     * this is a magic method
+     * @return string
+     */
+    public function __toString()
+    {
+
+        return "{$this->portName}";
     }
 
 }

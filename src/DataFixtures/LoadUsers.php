@@ -32,7 +32,7 @@ class LoadUsers extends Fixture
         $userKen = $this->createUser('ken', 'pass', ['ROLE_SUPER_ADMIN']);
 
         // creating faker users
-
+//
 //        $faker = \Faker\Factory::create();
 //
 //        $numUsers = 10;
@@ -46,7 +46,7 @@ class LoadUsers extends Fixture
 //            $fakerUser->setRole($role);
 //            $manager->persist($fakerUser);
 //        }
-
+//
 
 
 

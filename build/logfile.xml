@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Project Test Suite" tests="4" assertions="4" errors="0" failures="0" skipped="0" time="0.332081">
+    <testsuite name="App\Tests\Controller\DefaultControllerTest" file="C:\Users\Nutzer\Desktop\WebframeWork Assingment\Port_Review\tests\Controller\DefaultControllerTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.156938">
+      <testcase name="testHomePageStatusOkay" class="App\Tests\Controller\DefaultControllerTest" classname="App.Tests.Controller.DefaultControllerTest" file="C:\Users\Nutzer\Desktop\WebframeWork Assingment\Port_Review\tests\Controller\DefaultControllerTest.php" line="11" assertions="1" time="0.156938"/>
+    </testsuite>
+    <testsuite name="App\Tests\Controller\PortControllerTest" file="C:\Users\Nutzer\Desktop\WebframeWork Assingment\Port_Review\tests\Controller\PortControllerTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.053716">
+      <testcase name="testPortListPageStatusOkay" class="App\Tests\Controller\PortControllerTest" classname="App.Tests.Controller.PortControllerTest" file="C:\Users\Nutzer\Desktop\WebframeWork Assingment\Port_Review\tests\Controller\PortControllerTest.php" line="12" assertions="1" time="0.053716"/>
+    </testsuite>
+    <testsuite name="App\Tests\Controller\ReviewControllerTest" file="C:\Users\Nutzer\Desktop\WebframeWork Assingment\Port_Review\tests\Controller\ReviewControllerTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.086052">
+      <testcase name="testLoginPageStatusOkay" class="App\Tests\Controller\ReviewControllerTest" classname="App.Tests.Controller.ReviewControllerTest" file="C:\Users\Nutzer\Desktop\WebframeWork Assingment\Port_Review\tests\Controller\ReviewControllerTest.php" line="12" assertions="1" time="0.086052"/>
+    </testsuite>
+    <testsuite name="App\Tests\Controller\SecurityControllerTest" file="C:\Users\Nutzer\Desktop\WebframeWork Assingment\Port_Review\tests\Controller\SecurityControllerTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.035375">
+      <testcase name="testLoginPageStatusOkay" class="App\Tests\Controller\SecurityControllerTest" classname="App.Tests.Controller.SecurityControllerTest" file="C:\Users\Nutzer\Desktop\WebframeWork Assingment\Port_Review\tests\Controller\SecurityControllerTest.php" line="11" assertions="1" time="0.035375"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

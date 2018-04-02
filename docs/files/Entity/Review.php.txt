@@ -42,7 +42,7 @@ class Review
     private $pricePaid;
     /**
      * this is for the num of stars
-     * @ORM\Column(type ="float")
+     * @ORM\Column(type ="decimal")
      */
     private $numOfStars;
     /**
@@ -67,7 +67,11 @@ class Review
      * @ORM\Column(type ="boolean")
      */
     private $isPublic;
-
+    /**
+     * this is for votes
+     * @ORM\Column(type = "integer",nullable=true,options={"default" : 0})
+     */
+    private $votes;
 
     /**
      * this is to get user and allows for null
@@ -231,6 +235,22 @@ class Review
     public function setIsPublic($isPublic): void
     {
         $this->isPublic = $isPublic;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVotes()
+    {
+        return $this->votes;
+    }
+
+    /**
+     * @param mixed $votes
+     */
+    public function setVotes($votes)
+    {
+        $this->votes = $votes;
     }
 
 
