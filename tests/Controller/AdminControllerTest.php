@@ -6,16 +6,18 @@ namespace App\Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
-class PortControllerTest extends WebTestCase
+class AdminControllerTest extends WebTestCase
 {
-
-    public function testPortListPageStatusOkay()
+    /**
+     * http found is for 302 so that means that was redirected due to fact not loged in
+     */
+    public function testIfNotLoggedInAndTryAccessAdminPage()
     {
-        //arrange
-        $url = '/port/';
+        $url = '/myadmin';
         $httpMethod = 'GET';
         $client = static::createClient();
-        $expectedResult = Response::HTTP_OK;
+
+        $expectedResult = Response::HTTP_FOUND;
 
         //assert
         $client->request($httpMethod,$url);
@@ -23,8 +25,6 @@ class PortControllerTest extends WebTestCase
 
         //act
         $this->assertEquals($expectedResult,$resultStatusCode);
-
-
 
     }
 

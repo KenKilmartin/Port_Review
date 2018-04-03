@@ -1,3 +1,6 @@
+App\Tests\Controller\AdminController
+ [x] If not logged in and try access admin page
+
 App\Tests\Controller\DefaultController
  [x] Home page status okay
 
