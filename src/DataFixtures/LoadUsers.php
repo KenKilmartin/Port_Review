@@ -13,7 +13,12 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
 class LoadUsers extends Fixture
+
+
 {
+
+    const AUTHOR_REFERENCE = 'user';
+
     /**
      * @var UserPasswordEncoderInterface
      */
@@ -26,38 +31,47 @@ class LoadUsers extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        $faker = \Faker\Factory::create();
+
         // create objects
         $userUser = $this->createUser('user', 'user');
         $userAdmin = $this->createUser('admin', 'admin', ['ROLE_ADMIN']);
         $userMatt = $this->createUser('matt', 'smith', ['ROLE_SUPER_ADMIN']);
         $userKen = $this->createUser('ken', 'pass', ['ROLE_SUPER_ADMIN']);
 
-        // creating faker users
-//
-//        $faker = \Faker\Factory::create();
-//
-//        $numUsers = 10;
-//        for ($i=0; $i < $numUsers; $i++) {
-//            $firstName = $faker->firstNameMale;
-//            $password = $faker->password;
-//            $role = ('user');
-//            $fakerUser = new FakerUser();
-//            $fakerUser->setFirstName($firstName);
-//            $fakerUser->setPassword($password);
-//            $fakerUser->setRole($role);
-//            $manager->persist($fakerUser);
-//        }
-//
-
-
-
-
         // store to DB
         $manager->persist($userUser);
+        $this->addReference(self::AUTHOR_REFERENCE."20", $userUser);
         $manager->persist($userAdmin);
+        $this->addReference(self::AUTHOR_REFERENCE."21", $userAdmin);
         $manager->persist($userMatt);
+        $this->addReference(self::AUTHOR_REFERENCE."22", $userMatt);
         $manager->persist($userKen);
+        $this->addReference(self::AUTHOR_REFERENCE."23", $userKen);
         $manager->flush();
+
+
+
+
+        // creating faker users
+        for($i = 0; $i < 20; $i++)
+        {
+            $user = new User();
+
+            $username = $faker->userName();
+
+            $password = $faker->password();
+            $user->setUsername($username);
+            $user->setPassword($password);
+            $user->setRoles(['ROLE_USER']);
+            $manager->persist($user);
+            $this->addReference(self::AUTHOR_REFERENCE.$i, $userUser);
+            $manager->flush();
+        }
+
+
+
+
     }
 
     /**

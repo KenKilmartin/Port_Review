@@ -16,73 +16,76 @@ class LoadPorts extends Fixture
 {
 
 
-
+    const Port_REFERENCE = 'port';
     public function load(ObjectManager $manager)
     {
-
-            $port1 = new port();
-            $port1->setId('port ' . '1');
-            $port1->setPortName('Porto cruz LBV ' );
-            $port1->setPriceRange(mt_rand(10, 100));
-            $port1->setIngredients('Berries ');
-            $port1->setPhoto('p1.png');
-            $port1->setDescription('Ah lovely port with nodes of berries and a summer day');
-            $port1->setReviewedBy('ken');
-            $port1->setIsPublic('true');
-            $port1->setDate(new DateTime('2017-01-01'));
-
-            $port2 = new port();
-            $port2->setId('port ' . '2');
-            $port2->setPortName('Tesco finest LBV' );
-            $port2->setPriceRange(mt_rand(10, 50));
-            $port2->setIngredients('Berries ');
-            $port2->setPhoto('p2.jpg');
-            $port2->setDescription('Cold winter Port to warm your heart');
-            $port2->setReviewedBy('ken');
-            $port2->setIsPublic('true');
-            $port2->setDate(new DateTime('2018-12-25'));
-
-            $port3 = new port();
-            $port3->setId('port ' . '3');
-            $port3->setPortName('Sandemans  Ruby Port' );
-            $port3->setPriceRange(mt_rand(10, 100));
-            $port3->setIngredients('Cherry raspberry Strawberry ');
-            $port3->setPhoto('p3.png');
-            $port3->setDescription(' Full of the power, fruit and fire that distinguishes classic Porto. ');
-            $port3->setReviewedBy('ken');
-            $port3->setIsPublic('true');
-            $port3->setDate(new DateTime('2016-05-06'));
-
-            $port4 = new port();
-            $port4->setId('port ' . '4');
-            $port4->setPortName('Sandemans Tawny Port' );
-            $port4->setPriceRange(mt_rand(10, 100));
-            $port4->setIngredients('rasins ');
-            $port4->setPhoto('p4.png');
-            $port4->setDescription(' Clear red amber colours with a light intense body, open up to aromas of vanilla and evolved dried fruits. ');
-            $port4->setReviewedBy('ken');
-            $port4->setIsPublic('true');
-            $port4->setDate(new DateTime('2018-12-20'));
-
-            $port5 = new port();
-            $port5->setId('port ' . '5');
-            $port5->setPortName('Offaly Ruby Port' );
-            $port5->setPriceRange(mt_rand(10, 100));
-            $port5->setIngredients('grapes and dreams ');
-            $port5->setPhoto('p5.png');
-            $port5->setDescription(' A warm feeling inside like a fire roaring in your stomach. ');
-            $port5->setReviewedBy('matt smith');
-            $port5->setIsPublic('true');
-            $port5->setDate(new DateTime('2018-10-25'));
-
-            $manager->persist($port1);
-            $manager->persist($port2);
-            $manager->persist($port3);
-            $manager->persist($port4);
-            $manager->persist($port5);
+        $portName = array("Porto cruz LBV ",
+            "Tesco finest LBV",
+            "Sandemans  Ruby Port",
+            "Sandemans Tawny Port",
+            "Offaly Ruby Port");
 
 
+        $photo = array("p1.png",
+            "p2.jpg",
+            "p3.png",
+            "p4.png",
+            "p5.png",
+            "p6.png",
+            "p7.png",
+            "p8.png"
+            );
+        $description = array("A lovely port with nodes of berries and a summer day",
+            "Cold winter Port to warm your heart",
+            "Full of the power, fruit and fire that distinguishes classic Porto.",
+            "Clear red amber colours with a light intense body, open up to aromas of vanilla and evolved dried fruits.",
+            "A warm feeling inside like a fire roaring in your stomach.");
+        $ingredients = array("Grapes from Douro region",
+            "Donzelinho Branco Grapes",
+            "Esgana-Cão Grapes",
+            "Folgasão Grapes");
+
+        $isPublic = array(true, false);
+   //     $doesUserWantToMakePublic = array(true, false);
+
+        $reviewedBy = array("user", "admin", "Ken","Matt");
+
+
+        for ($i = 0; $i < 20; $i++) {
+            $port = new Port();
+
+            $port->setPortName($portName[mt_rand(0, count($portName)-1)]);
+
+
+            $port->setPhoto($photo[mt_rand(0, count($photo)-1)]);
+            $port->setDescription($description[mt_rand(0, count($description)-1)]);
+            $port->setIngredients($ingredients[mt_rand(0, count($ingredients)-1)]);
+            $port->setPriceRange(mt_rand(10, 100));
+            $port->setIsPublic($isPublic[mt_rand(0, count($isPublic)-1)]);
+//            $port->setDoesUserWantToMakePublic($doesUserWantToMakePublic[mt_rand(0, count($doesUserWantToMakePublic)-1)]);
+
+            $port->setReviewedBy($reviewedBy[mt_rand(0, count($reviewedBy)-1)]);
+            $port->setDate($this->randomDate());
+            $manager->persist($port);
+
+            // other fixtures can get this object using the UserFixtures::ADMIN_USER_REFERENCE constant
+            $this->addReference(self::Port_REFERENCE.$i, $port);
+
+
+        }
 
         $manager->flush();
     }
+
+    function randomDate()
+    {
+
+        // Generate random number
+        $val = mt_rand(1199145600, 1525132800);
+
+        // Convert back to desired date format
+
+        return new DateTime("@".$val);
+    }
+
 }

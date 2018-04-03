@@ -6,6 +6,7 @@
         "ext-iconv": "*",
         "doctrine/doctrine-fixtures-bundle": "^3.0",
         "easycorp/easyadmin-bundle": "^1.17",
+        "fzaninotto/faker": "^1.7",
         "knplabs/knp-paginator-bundle": "^2.7",
         "koff/crud-maker-bundle": "^1.1",
         "sensio/framework-extra-bundle": "^5.1",
