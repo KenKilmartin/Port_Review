@@ -4,7 +4,7 @@ easy_admin:
         Port:
           class: App\Entity\Port
           form:
-            fields: ['portName',  'photo', 'description', 'ingredients', 'priceRange', 'isPublic', ]
+            fields: ['portName',  'photo', type: 'image', 'description', 'ingredients', 'priceRange', 'isPublic', ]
         Review:
           class: App\Entity\Review
           form:

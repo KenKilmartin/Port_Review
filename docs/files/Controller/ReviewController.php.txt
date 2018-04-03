@@ -1,8 +1,8 @@
 <?php
-/**
- * for sake of documentor WORK
- */
 
+/**
+ * this is for name space controller
+ */
 namespace App\Controller;
 
 use App\Entity\Review;
@@ -14,12 +14,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class ReviewController
- * @package App\Controller
  * @Route("/review", name="review_")
  */
 class ReviewController extends Controller
-
 {
     /**
      * @Route("/", name="index")
@@ -47,6 +44,7 @@ class ReviewController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $em->persist($review);
             $em->flush();
 
             return $this->redirectToRoute('homepage', ['id' => $review->getId()]);
@@ -142,5 +140,5 @@ class ReviewController extends Controller
         return $this->render('review/show.html.twig',['review'=>$review]);
 
     }
-
 }
+

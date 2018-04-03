@@ -28,3 +28,6 @@ security:
                 target: /
             access_denied_handler: App\Security\AccessDeniedHandler
 
+
+    access_control:
+      - { path: ^/admin, role: ROLE_ADMIN}
