@@ -33,7 +33,10 @@ class LoadPorts extends Fixture
             "p5.png",
             "p6.png",
             "p7.png",
-            "p8.png"
+            "p8.png",
+            "p9.png",
+            "p10.png",
+            "p11.jpg"
             );
         $description = array("A lovely port with nodes of berries and a summer day",
             "Cold winter Port to warm your heart",
