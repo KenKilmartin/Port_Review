@@ -4,7 +4,7 @@ easy_admin:
         Port:
           class: App\Entity\Port
           form:
-            fields: ['portName',  'photo', type: 'image', 'description', 'ingredients', 'priceRange', 'isPublic', ]
+            fields: ['portName',  'photo', 'description', 'ingredients', 'priceRange', 'isPublic', ]
         Review:
           class: App\Entity\Review
           form:
@@ -23,6 +23,7 @@ easy_admin:
               - username
               - { type: 'section', label: 'Roles:', help: 'ROLE_SUPER_ADMIN, ROLE_ADMIN, ROLE_USER', css_class: 'danger' }
               - roles
+
     site_name: 'A Drop Of Port'
 
 
