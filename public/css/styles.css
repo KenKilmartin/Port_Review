@@ -236,3 +236,9 @@ html {height:100%}
   background-color: #fff;
   margin-top: 10px;
 }
+.container{
+    background-color: lightblue;
+    border: 30px black;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.65);
+
+}
