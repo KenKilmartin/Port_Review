@@ -28,15 +28,15 @@
     </form>
     {% endif %}
     <h1 style="clear: both" >Port index</h1>
-    <table>
+    <table class="table table-hover" >
     {% block pagination_head %}
         <thead>
             <tr>
                 <th>{{ knp_pagination_sortable(pagination, 'Port Name', 'portName') }}</th>
                 <th>Photo</th>
                 <th style="width:100px">{{ knp_pagination_sortable(pagination, 'Date', 'date') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'Description', 'description') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'Ingredients', 'ingredients') }}</th>
+                <th>Description</th>
+                <th>Ingredients</th>
                 <th style="width:60px">{{ knp_pagination_sortable(pagination, 'Price Range', 'priceRange') }}</th>
                 {% if is_granted('ROLE_ADMIN') %}
                 <th>{{ knp_pagination_sortable(pagination, 'Submitted By', 'reviewedBy') }}</th>

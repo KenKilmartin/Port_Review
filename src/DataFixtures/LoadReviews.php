@@ -29,7 +29,7 @@ class LoadReviews extends Fixture implements DependentFixtureInterface
 
         $numOfStars = array(0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0);
 
-//        $doesUserWantToMakePublic = array(true,false);
+        $doesUserWantToMakePublic = array(true,false);
         $isPublic = array(true,false);
         $reviewedBy = array("User", "Admin", "Ken","Matt");
 
@@ -45,7 +45,7 @@ class LoadReviews extends Fixture implements DependentFixtureInterface
             $reviews->setPlaceOfPurchase($placeOfPurchase[mt_rand(0,count($placeOfPurchase)-1)]);
             $reviews->setPricePaid(mt_rand(10, 100));
             $reviews->setNumOfStars($numOfStars[mt_rand(0,count($numOfStars)-1)]);
-//            $review->setDoesUserWantToMakePublic($doesUserWantToMakePublic[mt_rand(0,count($doesUserWantToMakePublic)-1)]);
+            $reviews->setDoesUserWantToMakePublic($doesUserWantToMakePublic[mt_rand(0,count($doesUserWantToMakePublic)-1)]);
             $reviews->setIsPublic($isPublic[mt_rand(0,count($isPublic)-1)]);
             $reviews->setVotes(mt_rand(-15, 100));
         }

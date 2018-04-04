@@ -72,6 +72,15 @@ class Review
      * @ORM\Column(type = "integer",nullable=true,options={"default" : 0})
      */
     private $votes;
+    /**
+     * this is if the user wants to make port private
+     * @ORM\Column(type ="boolean")
+     */
+    private $doesUserWantToMakePublic;
+
+
+
+
 
     /**
      * this is to get user and allows for null
@@ -252,6 +261,24 @@ class Review
     {
         $this->votes = $votes;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDoesUserWantToMakePublic()
+    {
+        return $this->doesUserWantToMakePublic;
+    }
+
+    /**
+     * @param mixed $doesUserWantToMakePublic
+     */
+    public function setDoesUserWantToMakePublic($doesUserWantToMakePublic): void
+    {
+        $this->doesUserWantToMakePublic = $doesUserWantToMakePublic;
+    }
+
+
 
 
 }

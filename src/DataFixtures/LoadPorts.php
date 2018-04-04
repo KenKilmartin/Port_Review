@@ -49,7 +49,7 @@ class LoadPorts extends Fixture
             "Folgasão Grapes");
 
         $isPublic = array(true, false);
-   //     $doesUserWantToMakePublic = array(true, false);
+        $doesUserWantToMakePublic = array(true, false);
 
         $reviewedBy = array("user", "admin", "Ken","Matt");
 
@@ -65,7 +65,7 @@ class LoadPorts extends Fixture
             $port->setIngredients($ingredients[mt_rand(0, count($ingredients)-1)]);
             $port->setPriceRange(mt_rand(10, 100));
             $port->setIsPublic($isPublic[mt_rand(0, count($isPublic)-1)]);
-//            $port->setDoesUserWantToMakePublic($doesUserWantToMakePublic[mt_rand(0, count($doesUserWantToMakePublic)-1)]);
+            $port->setDoesUserWantToMakePublic($doesUserWantToMakePublic[mt_rand(0, count($doesUserWantToMakePublic)-1)]);
 
             $port->setReviewedBy($reviewedBy[mt_rand(0, count($reviewedBy)-1)]);
             $port->setDate($this->randomDate());

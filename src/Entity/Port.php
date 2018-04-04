@@ -71,6 +71,21 @@ class Port
     private $date;
 
     /**
+     * this is if the user wants to make port private
+     * @ORM\Column(type ="boolean")
+     */
+    private $doesUserWantToMakePublic;
+
+    /**
+     * this has been reviewed by
+     * @ORM\Column(type ="string")
+     *
+     */
+    private $reviewedBy;
+
+
+
+    /**
      * this function is to get if post is public or not
      * @return mixed
      */
@@ -108,12 +123,9 @@ class Port
     {
         $this->reviewedBy = $reviewedBy;
     }
-    /**
-     * this has been reviewed by
-     * @ORM\Column(type ="string")
-     *
-     */
-    private $reviewedBy;
+
+
+
 
 
 
@@ -278,5 +290,23 @@ class Port
 
         return "{$this->portName}";
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDoesUserWantToMakePublic()
+    {
+        return $this->doesUserWantToMakePublic;
+    }
+
+    /**
+     * @param mixed $doesUserWantToMakePublic
+     */
+    public function setDoesUserWantToMakePublic($doesUserWantToMakePublic): void
+    {
+        $this->doesUserWantToMakePublic = $doesUserWantToMakePublic;
+    }
+
+
 
 }
