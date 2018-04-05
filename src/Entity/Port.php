@@ -292,7 +292,6 @@ class Port
     }
 
     /**
-     * this gets does user want make public
      * @return mixed
      */
     public function getDoesUserWantToMakePublic()
@@ -301,7 +300,6 @@ class Port
     }
 
     /**
-     * this sets does user want make public
      * @param mixed $doesUserWantToMakePublic
      */
     public function setDoesUserWantToMakePublic($doesUserWantToMakePublic): void

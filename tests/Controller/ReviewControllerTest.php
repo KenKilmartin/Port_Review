@@ -9,8 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 class ReviewControllerTest extends WebTestCase
 {
 
-    const REVIEW_ID = '226';
-
     public function testReviewPageStatusOkay()
     {
         //arrange
@@ -26,45 +24,8 @@ class ReviewControllerTest extends WebTestCase
         //act
         $this->assertEquals($expectedResult,$resultStatusCode);
 
-    }
-    /**
-     * @dataProvider basicPagesTextProvider
-     */
-    public function testReviewPagesContainBasicText($url, $exepctedLowercaseText)
-    {
-        // Arrange
-        $httpMethod = 'GET';
-        $client = static::createClient();
-
-        // Act
-        $client->request($httpMethod, $url);
-        $content = $client->getResponse()->getContent();
-        $statusCode = $client->getResponse()->getStatusCode();
-
-        // to lower case
-        $contentLowerCase = strtolower($content);
-
-        // Assert - status code 200
-        $this->assertSame(Response::HTTP_OK, $statusCode);
-        // Assert - expected content
-        $this->assertContains(
-            $exepctedLowercaseText,
-            $contentLowerCase
-        );
-    }
-    public function basicPagesTextProvider()
-    {
-        return [
-//            ['/review/', 'review index'],
-            ['/review/'.self::REVIEW_ID, 'review'],
-            ['/review/'.self::REVIEW_ID.'/edit', 'edit review'],
-            ['/review/226', 'place of purchase'],
-            ['/review/new', 'create new review'],
-            ['review/upVote/'.self::REVIEW_ID, 'review'],
-            ['review/downVote/'.self::REVIEW_ID, 'review'],
 
 
-        ];
     }
 
 }

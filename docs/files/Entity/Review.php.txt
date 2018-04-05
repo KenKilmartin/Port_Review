@@ -42,7 +42,7 @@ class Review
     private $pricePaid;
     /**
      * this is for the num of stars
-     * @ORM\Column(type ="decimal", scale=1)
+     * @ORM\Column(type ="decimal")
      */
     private $numOfStars;
     /**
@@ -72,15 +72,6 @@ class Review
      * @ORM\Column(type = "integer",nullable=true,options={"default" : 0})
      */
     private $votes;
-    /**
-     * this is if the user wants to make port private
-     * @ORM\Column(type ="boolean")
-     */
-    private $doesUserWantToMakePublic;
-
-
-
-
 
     /**
      * this is to get user and allows for null
@@ -232,7 +223,7 @@ class Review
      * this is to get if it is public
      * @return mixed
      */
-    public function getisPublic()
+    public function getIsPublic()
     {
         return $this->isPublic;
     }
@@ -247,6 +238,7 @@ class Review
     }
 
     /**
+     * this is to get Votes
      * @return mixed
      */
     public function getVotes()
@@ -255,29 +247,13 @@ class Review
     }
 
     /**
+     * this is to set votes
      * @param mixed $votes
      */
     public function setVotes($votes)
     {
         $this->votes = $votes;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getDoesUserWantToMakePublic()
-    {
-        return $this->doesUserWantToMakePublic;
-    }
-
-    /**
-     * @param mixed $doesUserWantToMakePublic
-     */
-    public function setDoesUserWantToMakePublic($doesUserWantToMakePublic): void
-    {
-        $this->doesUserWantToMakePublic = $doesUserWantToMakePublic;
-    }
-
 
 
 
