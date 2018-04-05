@@ -83,7 +83,7 @@ class Review
 
 
     /**
-     * this is to get user and allows for null
+     * this is to get user and allows for null :?User
      * @return mixed
      */
     public function getUser()
@@ -92,10 +92,10 @@ class Review
     }
 
     /**
-     * this sets a user and allows it to be null
+     * this sets a user and allows it to be null  (User $user = null)
      * @param mixed $user
      */
-    public function setUser($user)
+    public function setUser ($user )
     {
         $this->user = $user;
     }
