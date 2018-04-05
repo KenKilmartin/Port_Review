@@ -191,15 +191,15 @@ class User implements UserInterface, \Serializable
     {
         $this->reviews = $reviews;
     }
-//    /**
-//     * this is a magic method
-//     * @return string
-//     */
-//    public function __toString()
-//    {
-//
-//        return "{$this->id} {$this->description}";
-//    }
+    /**
+     * this is a magic method
+     * @return string
+     */
+    public function __toString()
+    {
+
+        return "{$this->id} {$this->username}";
+    }
 //    public function __construct()
 //    {
 //        $this->reviews = new ArrayCollection();

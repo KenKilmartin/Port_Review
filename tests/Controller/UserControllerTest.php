@@ -6,34 +6,16 @@ namespace App\Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminControllerTest extends WebTestCase
+
+class UserControllerTest  extends WebTestCase
 {
-    /**
-     * http found is for 302 so that means that was redirected due to fact not loged in
-     */
-    public function testIfNotLoggedInAndTryAccessAdminPage()
-    {
-        $url = '/myadmin';
-        $httpMethod = 'GET';
-        $client = static::createClient();
-
-        $expectedResult = Response::HTTP_FOUND;
-
-        //assert
-        $client->request($httpMethod,$url);
-        $resultStatusCode = $client->getResponse()->getStatusCode();
-
-        //act
-        $this->assertEquals($expectedResult,$resultStatusCode);
-
-    }
 
     /**
-     * @dataProvider adminPagesTextProvider
+     * @dataProvider userPagesTextProvider
      * @param $url
      * @param $expectedLowercaseText
      */
-    public function testAdminPagesContainBasicText($url, $expectedLowercaseText)
+    public function testUserPagesContainBasicText($url, $expectedLowercaseText)
     {
 
         $client= $this->login();
@@ -58,13 +40,13 @@ class AdminControllerTest extends WebTestCase
         );
     }
 
-    public function adminPagesTextProvider()
+    public function userPagesTextProvider()
     {
         return [
-            ['/myadmin', 'admin home'],
-            ['/makeReviewPublic/203','admin home'],
-            ['/makePortPublic/102','admin home']
-
+            ['/user/', 'user index'],
+            ['user/new','create new user'],
+            ['/user/125', 'user'],
+            ['/user/125/edit', 'edit user'],
 
         ];
     }
@@ -91,6 +73,7 @@ class AdminControllerTest extends WebTestCase
 
         return $client;
     }
+
 
 
 
