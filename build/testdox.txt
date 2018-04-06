@@ -7,7 +7,7 @@ App\Tests\Controller\DefaultController
 
 App\Tests\Controller\PortController
  [x] Port list page status okay
- [x] New port page status okay
+ [x] New port page redirects due to not being logged in
  [x] Port pages contain basic text 
 
 App\Tests\Controller\ReviewController

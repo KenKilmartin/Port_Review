@@ -10,7 +10,7 @@ class AdminControllerTest extends WebTestCase
 {
     const ADMIN_ID = '1';
     /**
-     * http found is for 302 so that means that was redirected due to fact not loged in
+     * http found is for 302 so that means that was redirected due to fact not logged in
      */
     public function testIfNotLoggedInAndTryAccessAdminPage()
     {

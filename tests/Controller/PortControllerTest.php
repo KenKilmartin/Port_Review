@@ -29,13 +29,13 @@ class PortControllerTest extends WebTestCase
 
 
     }
-    public function testNewPortPageStatusOkay()
+    public function testNewPortPageRedirectsDueToNotBeingLoggedIn()
     {
         //arrange
         $url = '/port/new';
         $httpMethod = 'GET';
         $client = static::createClient();
-        $expectedResult = Response::HTTP_OK;
+        $expectedResult = Response::HTTP_FOUND;
 
         //assert
         $client->request($httpMethod,$url);
@@ -80,7 +80,7 @@ class PortControllerTest extends WebTestCase
             ['/port/', 'port index'],  // this is for port index
             ['/port/'.self::PORT_ID.'/edit', 'edit port'],  // this is for editing Port
             ['/port/'.self::PORT_ID, 'port'], // this is for Port show
-            ['/port/new', 'create new port'], //this is for new Port
+
 
         ];
     }
