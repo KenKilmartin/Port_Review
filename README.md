@@ -1,5 +1,5 @@
 "# Port_Review" 
-<h2>To view the site Live go to :  </h2>
+<h2>To view the site live go to :  </h2>
 https://port-review.herokuapp.com/
 <br>
 <p> I had some trouble with my repo after I put the site live, so to combat this I  made a new repo for the heroku live site.</p>
