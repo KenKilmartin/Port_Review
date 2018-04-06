@@ -32,3 +32,4 @@ security:
     access_control:
       - { path: ^/admin, role: ROLE_ADMIN}
       - { path: ^/user/, role: ROLE_ADMIN}
+      - { path: ^/port/new, role: ROLE_USER}

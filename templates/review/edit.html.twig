@@ -3,7 +3,7 @@
 {% block title %}Edit Review{% endblock %}
 
 {% block body %}
-
+    {% if is_granted('ROLE_USER')  %}
     <h1>Edit Review</h1>
 
     {% include 'review/_form.html.twig' with {'form': form, 'button_label': 'Edit'} only %}
@@ -11,5 +11,12 @@
     <a href="{{ path('review_index') }}">back to list</a>
 
     {% include 'review/_delete_form.html.twig' with {'identifier': review.id} only %}
+    {% endif %}
+
+    {% if is_granted('ROLE_USER') == false %}
+        <h1 style="margin-left:  30%"> You don't belong here ! </h1>
+        <img style="margin-left:  45%" class="items"  src="/images/dbh.png" alt="Dont belong here">
+    {% endif %}
+
 
 {% endblock %}
