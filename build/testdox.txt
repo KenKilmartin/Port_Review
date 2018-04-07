@@ -9,6 +9,8 @@ App\Tests\Controller\PortController
  [x] Port list page status okay
  [x] New port page redirects due to not being logged in
  [x] Port pages contain basic text 
+ [x] New port contain basic text 
+ [x] Delete port page redirects due to not being logged in
 
 App\Tests\Controller\ReviewController
  [x] Review page status okay

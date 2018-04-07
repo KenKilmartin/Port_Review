@@ -200,6 +200,11 @@ class User implements UserInterface, \Serializable
 
         return "{$this->username}";
     }
+
+    /**
+     * this is a constructor
+     * User constructor.
+     */
     public function __construct()
     {
         $this->reviews = new ArrayCollection();

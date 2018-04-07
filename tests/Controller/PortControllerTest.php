@@ -85,6 +85,88 @@ class PortControllerTest extends WebTestCase
         ];
     }
 
+    /**
+     * @dataProvider portPagesTextProvider
+     * @param $url
+     * @param $expectedLowercaseText
+     */
+    public function testNewPortContainBasicText($url, $expectedLowercaseText)
+    {
 
+        $client= $this->login();
+        $httpMethod = 'GET';
+
+        // Arrange
+
+
+        // Act
+        $client->request($httpMethod, $url);
+        $content = $client->getResponse()->getContent();
+        $statusCode = $client->getResponse()->getStatusCode();
+
+        // to lower case
+        $contentLowerCase = strtolower($content);
+
+        $this->assertSame(Response::HTTP_OK, $statusCode);
+        // Assert - expected content
+        $this->assertContains(
+            $expectedLowercaseText,
+            $contentLowerCase
+        );
+    }
+
+    public function portPagesTextProvider()
+    {
+        return [
+            ['/port/new', 'create'],
+
+        ];
+    }
+
+    public function testDeletePortPageRedirectsDueToNotBeingLoggedIn()
+    {
+        //arrange
+        $url = '/port/'.self::PORT_ID;
+        $httpMethod = 'GET';
+        $client = static::createClient();
+        $expectedResult = Response::HTTP_OK;
+
+        //assert
+        $client->request($httpMethod,$url);
+        $resultStatusCode = $client->getResponse()->getStatusCode();
+
+        //act
+        $this->assertEquals($expectedResult,$resultStatusCode);
+
+
+
+    }
+
+
+
+
+
+    public function login()
+    {
+
+        $urlL = '/login';
+        $httpMethod = 'GET';
+        $client = static::createClient();
+        $crawler = $client->request($httpMethod, $urlL);
+
+        // Act
+        $button = $crawler->selectButton('login');
+
+        $form = $button->form();
+
+        // set some values
+        $form['_username'] = "admin";
+        $form['_password'] = "admin";
+
+        // submit the form
+        $client->submit($form);
+
+        return $client;
+    }
 
 }
