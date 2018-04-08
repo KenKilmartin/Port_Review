@@ -141,6 +141,79 @@ class PortControllerTest extends WebTestCase
 
 
     }
+//
+//
+//    public function testNewPortFormRedirect()
+//    {
+//        // Arrange
+//        $url = '/port/new';
+//        $client= $this->login();
+//        $httpMethod = 'GET';
+////       $client->request($httpMethod, $url);
+//        $expectedURL = '/';
+//
+//        $crawler = $client->request($httpMethod, $url);
+//
+//        $button = $crawler->selectButton('Save');
+//        $form = $button->form();
+//
+//
+//        $form['portName'] = 'This is a test test';
+//        $form['photo'] = '1.png';
+//        $form['description'] = 'This is a test test';
+//        $form['priceRange'] = 32;
+//        $form['reviewedBy'] = 'Admin';
+//        $form['date'] = 'This is a test test';
+//        $form['isPublic'] = 0;
+//        $form['doesUserWantToMakePublic'] = 0;
+//        $form['ingredients'] ='nightmares';
+
+//        return $client;
+   //     $form['buttonName'] = 'Save';
+
+//        $portName = 'This is a test test';
+//        $photo = '1.png';
+//        $description = 'This is a test test';
+//        $priceRange = 32;
+//        $reviewedBy = 'Admin';
+//        $date = 'This is a test test';
+//        $isPublic = 0;
+//        $doesUserWantToMakePublic = 0;
+//        $ingredients ='nightmares';
+//        $buttonName = 'Save';
+//
+//
+//        // Act
+//        $client->submit($client->request($httpMethod, $url)->selectButton($buttonName)->form([
+//            'portName'  => $portName,
+//
+//            'photo'  => $photo,
+//            'description'  => $description,
+//            'ingredients'  => $ingredients,
+//            'priceRange'  => $priceRange,
+//            'reviewedBy'  => $reviewedBy,
+//            'date'  => $date,
+//            'isPublic'  => $isPublic,
+//            'doesUserWantToMakePublic'  => $doesUserWantToMakePublic,
+//
+//        ]));
+//        $content = $client->getResponse()->getContent();
+        // Assert
+       // $this->assertContains($expectedURL, $content);
+//
+//        $this->assertContains($expectedURL, $client);
+//    }
+//*********************************************************************IDEA FOR REDIRECT *******************************************************************************
+//    public function testNewPortRedirect()
+//    {
+//        $client->followRedirect();
+//
+//        // to lower case
+//        $contentLowerCase = strtolower($content);
+//
+//        $this->assertSame(Response::HTTP_OK,$client->getResponse()->getStatusCode() );
+//
+//    }
 
 
 

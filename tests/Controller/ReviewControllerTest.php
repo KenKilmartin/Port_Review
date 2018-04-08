@@ -67,4 +67,15 @@ class ReviewControllerTest extends WebTestCase
         ];
     }
 
+//    public function testReviewPageResponseCodeMoved() {
+//        // Arrange
+//        $url = '/review';
+//        $httpMethod = 'GET';
+//        $client = static::createClient();
+//        // Assert
+//        $client->request($httpMethod, $url);
+//        // Assert
+//        $this->assertSame( Response::HTTP_MOVED_PERMANENTLY, $client->getResponse()->getStatusCode() );
+//    }
+
 }
