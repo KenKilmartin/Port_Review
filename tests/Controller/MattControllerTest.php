@@ -23,7 +23,6 @@ class MattControllerTest extends WebTestCase
 
         $age = 1;
 
-
         // click link 'about'
         $buttonName = 'matt_submit';
 
