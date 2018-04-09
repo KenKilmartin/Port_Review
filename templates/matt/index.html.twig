@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matt index{% endblock %}
+
+{% block body %}
+
+    <h1>Matt index</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Age</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for matt in matts %}
+            <tr>
+                <td>{{ matt.id }}</td>
+                <td>{{ matt.age }}</td>
+                <td>
+                    <a href="{{ path('matt_show', {'id': matt.id}) }}">show</a>
+                    <a href="{{ path('matt_edit', {'id': matt.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('matt_new') }}">Create new</a>
+
+{% endblock %}

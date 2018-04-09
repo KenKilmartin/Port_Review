@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matt{% endblock %}
+
+{% block body %}
+
+    <h1>Matt</h1>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <td>{{ matt.id }}</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>{{ matt.age }}</td>
+        </tr>
+
+    </table>
+
+    <a href="{{ path('matt_index') }}">back to list</a>
+
+    <a href="{{ path('matt_edit', {'id': matt.id}) }}">edit</a>
+
+    {% include 'matt/_delete_form.html.twig' with {'identifier': matt.id} only %}
+
+{% endblock %}
