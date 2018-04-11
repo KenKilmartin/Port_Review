@@ -76,6 +76,50 @@ class UserControllerTest  extends WebTestCase
         return $client;
     }
 
+//    public function testNewUserRedirectsToHomePageAfterSubmission()
+//    {
+//
+//        $url = '/user/new';
+//        $client= $this->login();
+//        $client->followRedirects(true);
+//        $httpMethod = 'GET';
+//
+//
+//        // Act
+//        $crawler = $client->request($httpMethod, $url);
+//
+//        // - should be on form page now
+//        $userName = 'This is a test test';
+//        $expectedLowercaseText = strtolower($userName);
+//        $password = '1.png';
+//        $role = ['Role_User'];
+//
+//        $buttonName = 'user_submit';
+//
+//        // get reference to button
+//
+//        $buttonCrawlerNode = $crawler->selectButton($buttonName);
+//
+//        // Act
+//        $formData =
+//            [
+//                'user[userName]'  => $userName,
+//                'user[roles][]'  => $role,
+//                'user[password]'  => $password,
+//
+//            ];
+//
+//        $form = $buttonCrawlerNode->form($formData);
+//
+//
+//        $client->submit($form);
+//
+//        $content = $client->getResponse()->getContent();
+//        $contentAsLowerCae = strtolower($content);
+//
+//        //Assert
+//        $this->assertContains($expectedLowercaseText, $contentAsLowerCae);
+//    }
 
 
 

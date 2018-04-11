@@ -50,7 +50,7 @@ class UserController extends Controller
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('user_edit', ['id' => $user->getId()]);
+            return $this->redirectToRoute('homepage', ['id' => $user->getId()]);
         }
 
         return $this->render('user/new.html.twig', [
@@ -84,7 +84,7 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('user_edit', ['id' => $user->getId()]);
+            return $this->redirectToRoute('homepage', ['id' => $user->getId()]);
         }
 
         return $this->render('user/edit.html.twig', [
