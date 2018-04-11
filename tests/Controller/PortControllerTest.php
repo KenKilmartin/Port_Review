@@ -283,9 +283,8 @@ class PortControllerTest extends WebTestCase
 
 
 
-<<<<<<< HEAD
-=======
-    }
+
+
 //
 //
 //    public function testNewPortFormRedirect()
@@ -359,7 +358,7 @@ class PortControllerTest extends WebTestCase
 //        $this->assertSame(Response::HTTP_OK,$client->getResponse()->getStatusCode() );
 //
 //    }
->>>>>>> dac50b8a3d92dea5c19c8311628823a51fd8408e
+
 
 
 

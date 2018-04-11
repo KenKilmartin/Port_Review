@@ -67,7 +67,7 @@ class ReviewControllerTest extends WebTestCase
         ];
     }
 
-<<<<<<< HEAD
+
     public function testEditReviewRedirectsToHomePageAfterSubmission()
     {
         // Arrange
@@ -212,7 +212,7 @@ class ReviewControllerTest extends WebTestCase
 
         return $client;
     }
-=======
+
 //    public function testReviewPageResponseCodeMoved() {
 //        // Arrange
 //        $url = '/review';
@@ -223,6 +223,6 @@ class ReviewControllerTest extends WebTestCase
 //        // Assert
 //        $this->assertSame( Response::HTTP_MOVED_PERMANENTLY, $client->getResponse()->getStatusCode() );
 //    }
->>>>>>> dac50b8a3d92dea5c19c8311628823a51fd8408e
+
 
 }
