@@ -281,6 +281,67 @@ class PortControllerTest extends WebTestCase
 
     }
 
+    public function testPortTextSearch()
+    {
+
+        $client= $this->login();
+
+        $httpMethod = 'GET';
+        $url='/port/';
+        $client->followRedirects(true);
+
+        $client->request($httpMethod,$url);
+        $expectedContent='ruby';
+        $q='ruby';
+
+        // click link to search cheesecakes
+        $buttonName = 'search_by_text';
+
+        // Act
+        $client->submit($client->request($httpMethod, $url)->selectButton($buttonName)->form([
+            'q'=>$q,
+        ]));
+
+        $content = $client->getResponse()->getContent();
+        $contentLowerCase = strtolower($content);
+
+        //assert
+        $this->assertContains($expectedContent, $contentLowerCase);
+
+    }
+    public function testPortDateSearch()
+    {
+
+        $client= $this->login();
+
+        $httpMethod = 'GET';
+        $url='/port/';
+        $client->followRedirects(true);
+
+        $client->request($httpMethod,$url);
+        $expectedContent='search between dates';
+        $d1='2017-04-01';
+        $d2='2018-04-01';
+
+
+        $buttonName = 'search_by_date';
+
+        // Act
+        $client->submit($client->request($httpMethod, $url)->selectButton($buttonName)->form([
+            'd1'=>$d1,
+            'd2'=>$d2,
+        ]));
+
+        $content = $client->getResponse()->getContent();
+        $contentLowerCase = strtolower($content);
+
+        //assert
+        $this->assertContains($expectedContent, $contentLowerCase);
+
+//        //assert
+//        $this->assertContains($expectedLowercaseText, $contentAsLowerCase);
+    }
+
 
 
 

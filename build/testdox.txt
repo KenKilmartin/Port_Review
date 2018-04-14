@@ -13,6 +13,8 @@ App\Tests\Controller\PortController
  [x] New port redirects to home page after submission
  [x] Edit port redirects to home page after submission
  [x] Delete port page redirects due to not being logged in
+ [x] Port text search
+ [x] Port date search
 
 App\Tests\Controller\ReviewController
  [x] Review page status okay

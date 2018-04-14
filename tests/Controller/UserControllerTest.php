@@ -75,7 +75,7 @@ class UserControllerTest  extends WebTestCase
 
         return $client;
     }
-
+//
 //    public function testNewUserRedirectsToHomePageAfterSubmission()
 //    {
 //
@@ -89,7 +89,7 @@ class UserControllerTest  extends WebTestCase
 //        $crawler = $client->request($httpMethod, $url);
 //
 //        // - should be on form page now
-//        $userName = 'This is a test test';
+//        $userName = 'testUser';
 //        $expectedLowercaseText = strtolower($userName);
 //        $password = '1.png';
 //        $role = ['Role_User'];
