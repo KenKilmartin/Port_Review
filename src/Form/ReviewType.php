@@ -19,7 +19,7 @@ class ReviewType extends AbstractType
             ->add('user')
             ->add('date')
             ->add('port')
-            ->add('isPublic')
+//            ->add('isPublic')
             ->add('doesUserWantToMakePublic')
 
         ;
