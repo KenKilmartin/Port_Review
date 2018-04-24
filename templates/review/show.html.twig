@@ -84,10 +84,10 @@
     <a href="{{ path('homepage') }}">back to home</a>
     {% if is_granted('ROLE_USER') and review.user == app.user.username %}
     <a href="{{ path('review_edit', {'id': review.id}) }}">edit</a>
+        {% include 'review/_delete_form.html.twig' with {'identifier': review.id} only %}
     {% endif %}
-
-
-    {% if is_granted('ROLE_USER') or ('ROLE_Admin') and review.user == app.user.username %}
-    {% include 'review/_delete_form.html.twig' with {'identifier': review.id} only %}
-    {% endif %}
+    {#and review.user == app.user.username#}
+    {#{% if is_granted('ROLE_USER') or ('ROLE_Admin')  %}#}
+    {#{% include 'review/_delete_form.html.twig' with {'identifier': review.id} only %}#}
+    {#{% endif %}#}
 {% endblock %}
